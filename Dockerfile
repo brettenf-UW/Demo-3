@@ -2,23 +2,40 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Create directories to match potential file locations
-RUN mkdir -p /app/main /app/root
+# Install all dependencies from requirements.txt
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all relevant files and directories
-COPY . /app/
-COPY pipeline.py /app/
+# Create necessary directories
+RUN mkdir -p /app/input /app/output /app/main
 
-# Try to copy from potential locations if they exist using the correct filenames
-RUN find /app -name "milp_soft.py" -exec cp {} /app/ \; || echo "milp_soft.py not found in copied files"
-RUN find /app -name "schedule_optimizer.py" -exec cp {} /app/ \; || echo "schedule_optimizer.py not found in copied files"
+# Copy all files preserving directory structure
+COPY main/ /app/main/
+COPY input/ /app/input/
+COPY output/ /app/output/
+COPY pipeline.py schedule_optimizer.py synthetic.py /app/
+COPY "gurobi.lic" /app/gurobi.lic
 
-# Also explicitly copy from the known locations
-COPY main/milp_soft.py /app/ || echo "Failed to copy milp_soft.py from main directory"
-COPY schedule_optimizer.py /app/ || echo "Failed to copy schedule_optimizer.py from root directory"
+# Set environment variables for Gurobi license and Anthropic API
+ENV GRB_LICENSE_FILE=/app/gurobi.lic
+ENV PATH="$PATH:/opt/gurobi/bin"
+ENV ANTHROPIC_API_KEY="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"
 
-# Install potential dependencies 
-RUN pip install --no-cache-dir pandas numpy
+# Create .env file with API key for dotenv loading
+RUN echo "ANTHROPIC_API_KEY=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" > /app/.env
+
+# Verify files were copied correctly
+RUN echo "Checking for required files:" && \
+    [ -f /app/main/milp_soft.py ] && echo "✓ Found milp_soft.py" || echo "✗ Missing milp_soft.py" && \
+    [ -f /app/schedule_optimizer.py ] && echo "✓ Found schedule_optimizer.py" || echo "✗ Missing schedule_optimizer.py" && \
+    [ -f /app/pipeline.py ] && echo "✓ Found pipeline.py" || echo "✗ Missing pipeline.py" && \
+    [ -f /app/synthetic.py ] && echo "✓ Found synthetic.py" || echo "✗ Missing synthetic.py" && \
+    [ -f /app/gurobi.lic ] && echo "✓ Found Gurobi license file" || echo "✗ Missing Gurobi license file"
+
+# Display environment setup
+RUN echo "Environment setup complete:" && \
+    echo "API Key configured" && \
+    echo "Gurobi License: $(ls -la /app/gurobi.lic)"
 
 # Run the pipeline script when the container starts
 CMD ["python", "pipeline.py"]

@@ -1,0 +1,103 @@
+2025-03-15 04:13:44,373 - INFO - Set parameter WLSAccessID
+2025-03-15 04:13:44,373 - INFO - Set parameter WLSSecret
+2025-03-15 04:13:44,373 - INFO - Set parameter LicenseID to value 2628134
+2025-03-15 04:13:44,593 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-15 04:13:44,593 - INFO - Initialization complete
+2025-03-15 04:13:44,706 - INFO - Variables created successfully
+2025-03-15 04:13:45,228 - INFO - Constraints added successfully
+2025-03-15 04:13:45,229 - INFO - Objective function with soft constraints set successfully
+2025-03-15 04:13:45,273 - INFO - ================================================================================
+2025-03-15 04:13:45,273 - INFO - SYSTEM CONFIGURATION
+2025-03-15 04:13:45,273 - INFO - System has 373.7 GB of RAM available
+2025-03-15 04:13:45,273 - INFO - Setting Gurobi memory limit to 355 GB (95% of available RAM)
+2025-03-15 04:13:45,273 - INFO - Set parameter MemLimit to value 363520
+2025-03-15 04:13:45,273 - INFO - Set parameter Presolve to value 1
+2025-03-15 04:13:45,273 - INFO - Set parameter Method to value 1
+2025-03-15 04:13:45,273 - INFO - Set parameter MIPFocus to value 1
+2025-03-15 04:13:45,274 - INFO - Set parameter MIPGap to value 0.1
+2025-03-15 04:13:45,274 - INFO - Set parameter TimeLimit to value 25200
+2025-03-15 04:13:45,274 - INFO - Set parameter NodefileStart to value 0.95
+2025-03-15 04:13:45,274 - INFO - Set parameter NodefileDir to value "/tmp/gurobi_nodefiles"
+2025-03-15 04:13:45,274 - INFO - Node file directory: /tmp/gurobi_nodefiles
+2025-03-15 04:13:45,274 - INFO - Will switch to disk storage when memory reaches 95.0% of allocated RAM
+2025-03-15 04:13:45,274 - INFO - Set parameter OutputFlag to value 1
+2025-03-15 04:13:45,274 - INFO - Set parameter DisplayInterval to value 5
+2025-03-15 04:13:45,282 - INFO - Set parameter Threads to value 32
+2025-03-15 04:13:45,282 - INFO - Using 32 threads out of 48 available cores
+2025-03-15 04:13:45,282 - INFO - Generating initial solution using advanced greedy algorithm...
+2025-03-15 04:13:45,326 - INFO - Greedy algorithm generated initial values for: 494 x vars, 46 z vars, 494 y vars
+2025-03-15 04:13:45,328 - INFO - Initial solution: 494/100 students assigned, 46/46 sections used
+2025-03-15 04:13:45,328 - INFO - Set parameter MIPFocus to value 1
+2025-03-15 04:13:45,328 - INFO - ================================================================================
+2025-03-15 04:13:45,328 - INFO - STARTING OPTIMIZATION
+2025-03-15 04:13:45,328 - INFO - Maximum possible satisfied requests: 600
+2025-03-15 04:13:45,329 - INFO - ================================================================================
+2025-03-15 04:13:45,340 - INFO - Gurobi Optimizer version 12.0.1 build v12.0.1rc0 (linux64 - "Debian GNU/Linux 12 (bookworm)")
+2025-03-15 04:13:45,340 - INFO - 
+2025-03-15 04:13:45,340 - INFO - CPU model: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+2025-03-15 04:13:45,340 - INFO - Thread count: 24 physical cores, 48 logical processors, using up to 32 threads
+2025-03-15 04:13:45,340 - INFO - 
+2025-03-15 04:13:45,340 - INFO - Non-default parameters:
+2025-03-15 04:13:45,340 - INFO - TimeLimit  25200
+2025-03-15 04:13:45,340 - INFO - MemLimit  363520
+2025-03-15 04:13:45,340 - INFO - MIPGap  0.1
+2025-03-15 04:13:45,341 - INFO - Method  1
+2025-03-15 04:13:45,341 - INFO - MIPFocus  1
+2025-03-15 04:13:45,341 - INFO - NodefileStart  0.95
+2025-03-15 04:13:45,341 - INFO - Presolve  1
+2025-03-15 04:13:45,341 - INFO - Threads  32
+2025-03-15 04:13:45,341 - INFO - 
+2025-03-15 04:13:45,343 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-15 04:13:45,343 - INFO - Optimize a model with 34726 rows, 13440 columns and 92354 nonzeros
+2025-03-15 04:13:45,344 - INFO - Model fingerprint: 0xfc291578
+2025-03-15 04:13:45,344 - INFO - Variable types: 0 continuous, 13440 integer (13394 binary)
+2025-03-15 04:13:45,344 - INFO - Coefficient statistics:
+2025-03-15 04:13:45,344 - INFO -   Matrix range     [1e+00, 1e+00]
+2025-03-15 04:13:45,344 - INFO -   Objective range  [1e+00, 1e+03]
+2025-03-15 04:13:45,344 - INFO -   Bounds range     [1e+00, 1e+00]
+2025-03-15 04:13:45,345 - INFO -   RHS range        [1e+00, 4e+01]
+2025-03-15 04:13:45,345 - INFO - 
+2025-03-15 04:13:45,345 - INFO - Warning: Completing partial solution with 12406 unfixed non-continuous variables out of 13440
+2025-03-15 04:13:45,373 - INFO - User MIP start produced solution with objective 44000 (0.03s)
+2025-03-15 04:13:45,375 - INFO - Loaded user MIP start with objective 44000
+2025-03-15 04:13:45,375 - INFO - 
+2025-03-15 04:13:45,578 - INFO - Presolve removed 98 rows and 638 columns
+2025-03-15 04:13:45,578 - INFO - Presolve time: 0.20s
+2025-03-15 04:13:45,578 - INFO - Presolved: 34628 rows, 12802 columns, 90906 nonzeros
+2025-03-15 04:13:45,600 - INFO - Variable types: 0 continuous, 12802 integer (12790 binary)
+2025-03-15 04:13:46,125 - INFO - 
+2025-03-15 04:13:46,125 - INFO - Root relaxation: objective 0.000000e+00, 4481 iterations, 0.52 seconds (0.64 work units)
+2025-03-15 04:13:46,142 - INFO - 
+2025-03-15 04:13:46,142 - INFO -     Nodes    |    Current Node    |     Objective Bounds      |     Work
+2025-03-15 04:13:46,142 - INFO -  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+2025-03-15 04:13:46,142 - INFO - 
+2025-03-15 04:13:46,142 - INFO - H    0     0                       0.0000000    0.00000  0.00%     -    0s
+2025-03-15 04:13:46,142 - INFO -      0     0    0.00000    0 1374    0.00000    0.00000  0.00%     -    0s
+2025-03-15 04:13:46,143 - INFO - 
+2025-03-15 04:13:46,144 - INFO - Explored 1 nodes (4481 simplex iterations) in 0.80 seconds (0.86 work units)
+2025-03-15 04:13:46,144 - INFO - Thread count was 32 (of 48 available processors)
+2025-03-15 04:13:46,144 - INFO - 
+2025-03-15 04:13:46,144 - INFO - Solution count 2: 0 44000 
+2025-03-15 04:13:46,144 - INFO - 
+2025-03-15 04:13:46,144 - INFO - Optimal solution found (tolerance 1.00e-01)
+2025-03-15 04:13:46,144 - INFO - Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+2025-03-15 04:13:46,144 - INFO - 
+2025-03-15 04:13:46,144 - INFO - User-callback calls 312, time in user-callback 0.00 sec
+2025-03-15 04:13:46,144 - INFO - ================================================================================
+2025-03-15 04:13:46,144 - INFO - OPTIMIZATION RESULTS
+2025-03-15 04:13:46,145 - INFO - STATUS: Found optimal solution!
+2025-03-15 04:13:46,145 - INFO - SATISFIED REQUESTS: 600 out of 600
+2025-03-15 04:13:46,146 - INFO - SATISFACTION RATE: 100.00%
+2025-03-15 04:13:46,146 - INFO - CAPACITY VIOLATIONS: 0 sections over capacity
+2025-03-15 04:13:46,146 - INFO - TOTAL OVERAGES: 0 students over capacity
+2025-03-15 04:13:46,146 - INFO - OBJECTIVE VALUE: 0.0
+2025-03-15 04:13:46,146 - INFO -   - Missed requests penalty: 0
+2025-03-15 04:13:46,146 - INFO -   - Capacity violations penalty: 0.0
+2025-03-15 04:13:46,146 - INFO - RUNTIME: 0.80 seconds
+2025-03-15 04:13:46,146 - INFO - NODES EXPLORED: 1.0
+2025-03-15 04:13:46,146 - INFO - MIP GAP: 0.00%
+2025-03-15 04:13:46,146 - INFO - PEAK MEMORY USAGE: Not available
+2025-03-15 04:13:46,146 - INFO - ================================================================================
+2025-03-15 04:13:46,146 - INFO - Saving solution files...
+2025-03-15 04:13:46,170 - INFO - Solution saved successfully
+2025-03-15 04:13:46,170 - INFO - Warning: environment still referenced so free is deferred (Continue to use WLS)

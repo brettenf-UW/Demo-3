@@ -1,0 +1,1 @@
+2025-03-15 04:12:30,910 - ERROR - Error running optimization: Unable to open Gurobi license file '/app/gurobi.lic'
