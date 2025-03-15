@@ -16,7 +16,8 @@ INPUT_FILES = {
     "Student Info": "Student_Info.csv",
     "Student Preferences": "Student_Preference_Info.csv",
     "Teacher Info": "Teacher_Info.csv",
-    "Teacher Unavailability": "Teacher_unavailability.csv"
+    "Teacher Unavailability": "Teacher_unavailability.csv",
+    "Period": "Period.csv"
 }
 
 # Define output file mappings - these are the files the user will download
@@ -27,65 +28,99 @@ OUTPUT_FILES = {
     "Constraint Violations": "Constraint_Violations.csv"
 }
 
-def upload_files(section_info, student_info, student_prefs, teacher_info, teacher_unavail):
+def save_file_from_upload(file_obj, file_type):
+    """Save a file from a Gradio upload and return status message"""
+    if file_obj is None:
+        return f"No {file_type} file uploaded"
+    
+    # Get target filename
+    target_filename = INPUT_FILES.get(file_type)
+    if not target_filename:
+        return f"Unknown file type: {file_type}"
+    
+    target_path = os.path.join(INPUT_DIR, target_filename)
+    
+    try:
+        # Make backup of existing file
+        if os.path.exists(target_path):
+            backup_path = f"{target_path}.bak"
+            shutil.copy2(target_path, backup_path)
+            backup_msg = f"Created backup of existing {file_type} file"
+        else:
+            backup_msg = ""
+        
+        # Handle different file object types from Gradio
+        if hasattr(file_obj, 'name'):  # File object from newer Gradio versions
+            # Copy the uploaded file to the target location
+            shutil.copy2(file_obj.name, target_path)
+        elif isinstance(file_obj, str):  # String path from some Gradio versions
+            shutil.copy2(file_obj, target_path)
+        else:
+            # Try different approach for other object types
+            with open(target_path, 'wb') as f:
+                if hasattr(file_obj, 'read'):  # File-like object
+                    f.write(file_obj.read())
+                elif hasattr(file_obj, 'save'):  # Gradio's UploadFile
+                    file_obj.save(target_path)
+                    return f"✅ Saved {file_type}"
+                else:
+                    return f"❌ Unsupported file object type for {file_type}"
+        
+        # Verify file was saved correctly
+        if os.path.exists(target_path):
+            # Try to read the CSV to verify it's valid
+            try:
+                df = pd.read_csv(target_path)
+                row_count = len(df)
+                col_count = len(df.columns)
+                status = f"✅ Saved {file_type}: {row_count} rows, {col_count} columns"
+                if backup_msg:
+                    status = f"{status}\n{backup_msg}"
+                return status
+            except Exception as e:
+                return f"⚠️ Saved {file_type} but file may be invalid: {str(e)}"
+        else:
+            return f"❌ Failed to save {file_type} file"
+            
+    except Exception as e:
+        return f"❌ Error processing {file_type}: {str(e)}"
+
+def upload_files(section_info, student_info, student_prefs, teacher_info, teacher_unavail, period_file):
     """Process uploaded files and save them to the input directory"""
-    results = []
     file_map = {
         "Sections Information": section_info,
         "Student Info": student_info,
         "Student Preferences": student_prefs,
         "Teacher Info": teacher_info,
-        "Teacher Unavailability": teacher_unavail
+        "Teacher Unavailability": teacher_unavail,
+        "Period": period_file
     }
-
+    
+    results = []
     for file_type, file_obj in file_map.items():
-        if file_obj is None:
-            results.append(f"No {file_type} file uploaded")
-            continue
-        
-        # Get target filename and save
-        target_filename = INPUT_FILES.get(file_type)
-        target_path = os.path.join(INPUT_DIR, target_filename)
-        
-        try:
-            # Make backup of existing file
-            if os.path.exists(target_path):
-                backup_path = f"{target_path}.bak"
-                shutil.copy2(target_path, backup_path)
-                results.append(f"Created backup of existing {file_type} file")
-            
-            # Save uploaded file
-            file_obj.save(target_path)
-            
-            # Verify file was saved correctly
-            if os.path.exists(target_path):
-                # Try to read the CSV to verify it's valid
-                try:
-                    df = pd.read_csv(target_path)
-                    row_count = len(df)
-                    col_count = len(df.columns)
-                    results.append(f"✅ Saved {file_type}: {row_count} rows, {col_count} columns")
-                except Exception as e:
-                    results.append(f"⚠️ Saved {file_type} but file may be invalid: {str(e)}")
-            else:
-                results.append(f"❌ Failed to save {file_type} file")
-                
-        except Exception as e:
-            results.append(f"❌ Error processing {file_type}: {str(e)}")
+        result = save_file_from_upload(file_obj, file_type)
+        results.append(result)
     
     return "\n".join(results)
 
 def run_optimization():
     """Run the optimization process using the Docker container"""
-    # Check if all required input files exist
+    # Check if all required input files exist (excluding Period which is optional)
+    required_files = dict(INPUT_FILES)
+    optional_files = ["Period"]  # Period.csv is optional
+    
+    for opt_file in optional_files:
+        if opt_file in required_files:
+            del required_files[opt_file]
+    
     missing_files = []
-    for file_type, filename in INPUT_FILES.items():
+    for file_type, filename in required_files.items():
         file_path = os.path.join(INPUT_DIR, filename)
         if not os.path.exists(file_path):
             missing_files.append(f"{file_type} ({filename})")
     
     if missing_files:
-        return f"❌ Cannot start optimization: Missing input files:\n" + "\n".join(missing_files)
+        return f"❌ Cannot start optimization: Missing required input files:\n" + "\n".join(missing_files)
     
     # Start the optimization process
     try:
@@ -161,13 +196,17 @@ def create_ui():
             with gr.Column():
                 # Input file uploads
                 gr.Markdown("### 📤 Upload Your CSV Files")
-                section_info_file = gr.File(label="Sections Information CSV", file_types=[".csv"])
-                student_info_file = gr.File(label="Student Info CSV", file_types=[".csv"])
-                student_prefs_file = gr.File(label="Student Preferences CSV", file_types=[".csv"])
-                teacher_info_file = gr.File(label="Teacher Info CSV", file_types=[".csv"])
-                teacher_unavail_file = gr.File(label="Teacher Unavailability CSV", file_types=[".csv"])
+                with gr.Row():
+                    with gr.Column():
+                        section_info_file = gr.File(label="Sections Information CSV", file_types=[".csv"])
+                        student_info_file = gr.File(label="Student Info CSV", file_types=[".csv"])
+                        student_prefs_file = gr.File(label="Student Preferences CSV", file_types=[".csv"])
+                    with gr.Column():
+                        teacher_info_file = gr.File(label="Teacher Info CSV", file_types=[".csv"])
+                        teacher_unavail_file = gr.File(label="Teacher Unavailability CSV", file_types=[".csv"])
+                        period_file = gr.File(label="Period CSV", file_types=[".csv"])
                 
-                upload_status = gr.Textbox(label="Upload Status", lines=10, interactive=False)
+                upload_status = gr.Textbox(label="Upload Status", lines=12, interactive=False)
                 
                 upload_btn = gr.Button("Upload Files", variant="primary")
                 
@@ -179,7 +218,8 @@ def create_ui():
                         student_info_file,
                         student_prefs_file,
                         teacher_info_file,
-                        teacher_unavail_file
+                        teacher_unavail_file,
+                        period_file
                     ],
                     outputs=upload_status
                 )
