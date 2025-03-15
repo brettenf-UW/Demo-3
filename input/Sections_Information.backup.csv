@@ -26,6 +26,7 @@ S024,Study Hall,T045,20,General
 S025,Study Hall,T045,20,General
 S026,English 9,T003,20,English
 S027,English 9,T004,20,English
+S028,English 9,T005,20,English
 S029,English 9,T006,20,English
 S030,English 9,T007,20,English
 S031,English 9,T003,20,English
@@ -40,6 +41,7 @@ S039,US History,T034,20,Social Studies
 S040,US History,T035,20,Social Studies
 S041,US History,T036,20,Social Studies
 S042,US History,T037,20,Social Studies
+S043,US History,T033,20,Social Studies
 S044,AP Biology,T013,20,Science
 S045,AP Biology,T014,20,Science
 S046,AP Biology,T015,20,Science
@@ -83,6 +85,7 @@ S085,Economics,T034,20,Social Studies
 S086,World History,T035,20,Social Studies
 S087,World History,T036,20,Social Studies
 S088,World History,T037,20,Social Studies
+S089,World History,T033,20,Social Studies
 S090,World History,T034,20,Social Studies
 S091,World History,T035,20,Social Studies
 S092,Math 4,T010,20,Math
@@ -113,8 +116,10 @@ S117,Government,T037,20,Social Studies
 S118,Government,T048,20,Social Studies
 S119,Government,T048,20,Social Studies
 S120,Government,T048,20,Social Studies
+S121,Government,T048,20,Social Studies
 S122,Sports Med,T039,15,PE
 S123,Sports Med,T040,15,PE
 S124,Sports Med,T041,15,PE
+S125,Sports Med,T042,15,PE
 S126,Sports Med,T038,15,PE
 S127,Sports Med,T039,15,PE

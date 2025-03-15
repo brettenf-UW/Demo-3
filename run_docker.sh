@@ -72,6 +72,11 @@ else
 fi
 
 echo -e "\n===== Script completed ====="
+
+# Fix permissions on output files
+echo "Fixing output permissions..."
+chown -R ec2-user:ec2-user output/
+
 echo "The output files are available in the 'output' directory."
 if [ -z "$SCRIPT_TO_RUN" ]; then
   echo "Check the following files:"

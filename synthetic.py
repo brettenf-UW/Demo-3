@@ -4,26 +4,29 @@ import numpy as np
 import math
 
 def generate_synthetic_data(output_path):
-    # Modify constants for better feasibility
-    STUDENTS_PER_GRADE = 25  #  number of students
+    # Fine-tuned constants for optimal balance
+    STUDENTS_PER_GRADE = 100  #  number of students
     SECTION_SIZES = {
-        'default': 25,  
-        'lab': 30,      
-        'PE': 35,       
-        'special': 15   
+        'default': 18,  # Further reduced from 20 for better balance
+        'lab': 18,      # Consistent with default sections
+        'PE': 22,       # Reduced from 25 
+        'special': 12   # Reduced from 15 to improve utilization
     }
-    MIN_SECTIONS_PER_COURSE = 2  # Ensure at least 2 sections per course
-
+    MIN_SECTIONS_PER_COURSE = 1  # Allow just 1 section for low-demand courses
+    
     SPED_RATIO = 0.15  # 15% SPED students to test distribution
-    SPECIAL_COURSE_RATIO = 0.3  # Only 30% of students get special courses
-
+    SPECIAL_COURSE_RATIO = 0.8  # Further increased to 80% to balance allocation
+    
     # Add new constants
     MAX_SCIENCE_SECTIONS = 3  # Maximum science sections per teacher
     SPECIAL_SECTIONS_PER_COURSE = 2  # Limit sections for Medical Career and Heroes Teach
-
-    # Modify SPECIAL_COURSE_RATIO to ensure we don't exceed capacity
+    
+    # No longer reducing SPECIAL_COURSE_RATIO (we want more special course enrollment)
     max_special_students = SPECIAL_SECTIONS_PER_COURSE * SECTION_SIZES['special']
-    SPECIAL_COURSE_RATIO = min(0.3, max_special_students / (STUDENTS_PER_GRADE * 4))
+    # Ensure we don't exceed special course capacity, but allow higher ratio
+    if max_special_students < (STUDENTS_PER_GRADE * 4 * SPECIAL_COURSE_RATIO):
+        print(f"Warning: Special course capacity ({max_special_students}) is less than requested students ({STUDENTS_PER_GRADE * 4 * SPECIAL_COURSE_RATIO:.0f})")
+        # Instead of reducing ratio, we'll prioritize in student assignment
 
     # Course patterns by grade
     COURSE_PATTERNS = {
@@ -38,14 +41,14 @@ def generate_synthetic_data(output_path):
             ['English 10', 'Math 2', 'Chemistry', 'US History', 'PE', 'Study Hall']  # Non-special alternative
         ],
         11: [
-            ['English 11', 'Math 3', 'Physics', 'Government', 'Sports Med', 'Medical Career'],
+            ['English 11', 'Math 3', 'Physics', 'Government', 'Study Hall', 'Medical Career'],
             ['English 11', 'Math 3', 'Physics', 'Government', 'Sports Med', 'Heroes Teach'],
-            ['English 11', 'Math 3', 'Physics', 'Government', 'Sports Med', 'Study Hall']  # Non-special alternative
+            ['English 11', 'Math 3', 'Physics', 'Government', 'PE', 'Study Hall']  # Alternative with different PE
         ],
         12: [
-            ['English 12', 'Math 4', 'AP Biology', 'Economics', 'Sports Med', 'Medical Career'],
+            ['English 12', 'Math 4', 'AP Biology', 'Economics', 'Study Hall', 'Medical Career'],
             ['English 12', 'Math 4', 'AP Biology', 'Economics', 'Sports Med', 'Heroes Teach'],
-            ['English 12', 'Math 4', 'AP Biology', 'Economics', 'Sports Med', 'Study Hall']  # Non-special alternative
+            ['English 12', 'Math 4', 'AP Biology', 'Economics', 'PE', 'Study Hall']  # Alternative with different PE
         ]
     }
 
@@ -264,15 +267,23 @@ def generate_synthetic_data(output_path):
     sections = []
     section_id = 1
 
-    # Calculate course demands first
+    # Calculate course demands first with more detailed counting
     course_demands = []
     for course in unique_courses:
         total_requests = sum(1 for prefs in student_preferences 
                            if course in prefs['Preferred Sections'].split(';'))
         course_demands.append((course, total_requests))
+        print(f"Course: {course}, Requests: {total_requests}")
     
     # Sort by demand
     course_demands.sort(key=lambda x: x[1], reverse=True)
+    
+    # Print overall statistics for verification
+    total_requests = sum(requests for _, requests in course_demands)
+    total_students = len(students)
+    print(f"\nTotal students: {total_students}")
+    print(f"Total course requests: {total_requests}")
+    print(f"Average requests per student: {total_requests/total_students:.1f}")
 
     # Handle special courses first
     special_courses = ['Medical Career', 'Heroes Teach']
@@ -289,7 +300,7 @@ def generate_synthetic_data(output_path):
             section_id += 1
             teacher_loads[teacher_id] += 1
 
-    # Modify section creation for better capacity distribution
+    # Improved section creation with better capacity planning
     def create_course_sections(course, requests):
         """Create sections for a course with appropriate capacity"""
         section_size = get_section_size(course)
@@ -297,11 +308,18 @@ def generate_synthetic_data(output_path):
         # Calculate minimum sections needed for capacity
         min_sections_needed = math.ceil(requests / section_size)
         
-        # Always create at least 2 sections, and ensure enough capacity
-        num_sections = max(MIN_SECTIONS_PER_COURSE, min_sections_needed)
+        # Use minimum sections per course only for core courses
+        # For special courses like Study Hall, only create what's needed
+        if course in ['Study Hall', 'Sports Med']:
+            # Just create what's needed for these over-allocated courses
+            num_sections = min_sections_needed
+        else:
+            # For core courses, ensure minimum sections
+            num_sections = max(MIN_SECTIONS_PER_COURSE, min_sections_needed)
         
-        # Add extra section if close to capacity
-        if (requests / (num_sections * section_size)) > 0.85:
+        # Don't automatically add extra sections - aim for higher utilization
+        # Only add section if we'd be over 95% capacity
+        if (requests / (num_sections * section_size)) > 0.95:
             num_sections += 1
             
         return num_sections, section_size

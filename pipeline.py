@@ -6,10 +6,10 @@ from pathlib import Path
 
 def check_section_capacity():
     """
-    Check if any section is below 60% capacity based on the output from MILPsoft.py.
+    Check if any section falls below target utilization thresholds based on the output from MILPsoft.py.
     
     Returns:
-        bool: True if any section is below 60% capacity, False otherwise
+        bool: True if any section is below target capacity, False otherwise
     """
     print("Checking section capacities...")
     
@@ -32,7 +32,16 @@ def check_section_capacity():
         # Calculate enrollment for each section
         section_enrollments = student_assignments['Section ID'].value_counts().to_dict()
         
-        # Check if any section is below 60% capacity
+        # Track statistics for better reporting
+        utilization_stats = {
+            'very_low': [], # < 50%
+            'low': [],      # 50-65%
+            'medium': [],   # 65-80%
+            'high': [],     # 80-95%
+            'full': []      # >= 95%
+        }
+        
+        # Check section utilization with more nuanced criteria
         below_capacity_sections = []
         for _, section in sections_info.iterrows():
             section_id = section['Section ID']
@@ -40,18 +49,41 @@ def check_section_capacity():
             enrollment = section_enrollments.get(section_id, 0)
             utilization = enrollment / capacity if capacity > 0 else 0
             
-            if utilization < 0.60:
+            # Track statistics
+            if utilization < 0.50:
+                utilization_stats['very_low'].append(section_id)
+            elif utilization < 0.65:
+                utilization_stats['low'].append(section_id)
+            elif utilization < 0.80:
+                utilization_stats['medium'].append(section_id)
+            elif utilization < 0.95:
+                utilization_stats['high'].append(section_id)
+            else:
+                utilization_stats['full'].append(section_id)
+                
+            # Size-dependent utilization thresholds - smaller sections should be more full
+            target_utilization = 0.65 if capacity <= 18 else 0.60
+            
+            if utilization < target_utilization:
                 below_capacity_sections.append((section_id, f"{utilization:.2%}"))
         
+        # Print utilization statistics
+        print(f"\nSection utilization statistics:")
+        print(f"  Very low (<50%): {len(utilization_stats['very_low'])} sections")
+        print(f"  Low (50-65%): {len(utilization_stats['low'])} sections")
+        print(f"  Medium (65-80%): {len(utilization_stats['medium'])} sections")
+        print(f"  High (80-95%): {len(utilization_stats['high'])} sections")
+        print(f"  Full (>=95%): {len(utilization_stats['full'])} sections")
+        
         if below_capacity_sections:
-            print(f"Found {len(below_capacity_sections)} sections below 60% capacity:")
+            print(f"\nFound {len(below_capacity_sections)} sections below target capacity:")
             for section_id, util in below_capacity_sections[:5]:  # Show only first 5 to avoid clutter
                 print(f"  - {section_id}: {util} capacity")
             if len(below_capacity_sections) > 5:
                 print(f"  - ... and {len(below_capacity_sections) - 5} more")
             return True
         else:
-            print("All sections are at or above 60% capacity.")
+            print("\nAll sections are at or above target capacity.")
             return False
         
     except Exception as e:
@@ -91,7 +123,7 @@ def run_optimization_pipeline():
     1. Run MILPsoft.py
     2. Check if any section is below 60% capacity
     3. If yes, run schedule_optimizer.py and then rerun MILPsoft.py
-    Maximum 4 iterations of MILPsoft.py.
+    Maximum 3 iterations of MILPsoft.py.
     """
     max_iterations = 2
     
@@ -136,6 +168,7 @@ def run_optimization_pipeline():
                         print(f"Sections file was last modified at: {mod_time_str}")
                         
                         # Check for optimization summary
+                        output_dir = os.path.join(os.getcwd(), 'output')
                         summary_file = os.path.join(output_dir, 'optimization_summary.json')
                         if os.path.exists(summary_file):
                             try:

@@ -1,260 +1,752 @@
 {
-  "timestamp": "2025-03-15 06:29:35",
-  "sections_before": 42,
-  "sections_after": 40,
-  "changes_made": 2,
+  "timestamp": "2025-03-15 07:24:15",
+  "sections_before": 124,
+  "sections_after": 119,
+  "changes_made": 5,
   "before_utilization": {
     "S001": {
       "course": "Medical Career",
       "capacity": 15,
-      "enrollment": 12,
-      "utilization": "80.0%"
+      "enrollment": 19,
+      "utilization": "126.7%"
     },
     "S002": {
       "course": "Medical Career",
       "capacity": 15,
-      "enrollment": 0,
-      "utilization": "0.0%"
+      "enrollment": 19,
+      "utilization": "126.7%"
     },
     "S003": {
       "course": "Heroes Teach",
       "capacity": 15,
-      "enrollment": 8,
-      "utilization": "53.3%"
+      "enrollment": 19,
+      "utilization": "126.7%"
     },
     "S004": {
       "course": "Heroes Teach",
       "capacity": 15,
-      "enrollment": 6,
-      "utilization": "40.0%"
+      "enrollment": 19,
+      "utilization": "126.7%"
     },
     "S005": {
-      "course": "Study Hall",
+      "course": "PE",
       "capacity": 25,
       "enrollment": 25,
       "utilization": "100.0%"
     },
     "S006": {
-      "course": "Study Hall",
+      "course": "PE",
       "capacity": 25,
       "enrollment": 24,
       "utilization": "96.0%"
     },
     "S007": {
-      "course": "Study Hall",
+      "course": "PE",
       "capacity": 25,
-      "enrollment": 7,
-      "utilization": "28.0%"
+      "enrollment": 23,
+      "utilization": "92.0%"
     },
     "S008": {
-      "course": "Study Hall",
+      "course": "PE",
       "capacity": 25,
-      "enrollment": 18,
-      "utilization": "72.0%"
+      "enrollment": 23,
+      "utilization": "92.0%"
     },
     "S009": {
-      "course": "Sports Med",
-      "capacity": 15,
-      "enrollment": 11,
-      "utilization": "73.3%"
+      "course": "PE",
+      "capacity": 25,
+      "enrollment": 22,
+      "utilization": "88.0%"
     },
     "S010": {
-      "course": "Sports Med",
-      "capacity": 15,
-      "enrollment": 11,
-      "utilization": "73.3%"
-    },
-    "S011": {
-      "course": "Sports Med",
-      "capacity": 15,
-      "enrollment": 15,
+      "course": "PE",
+      "capacity": 25,
+      "enrollment": 25,
       "utilization": "100.0%"
     },
+    "S011": {
+      "course": "PE",
+      "capacity": 25,
+      "enrollment": 22,
+      "utilization": "88.0%"
+    },
     "S012": {
-      "course": "Sports Med",
-      "capacity": 15,
-      "enrollment": 13,
-      "utilization": "86.7%"
+      "course": "PE",
+      "capacity": 25,
+      "enrollment": 19,
+      "utilization": "76.0%"
     },
     "S013": {
       "course": "PE",
-      "capacity": 35,
-      "enrollment": 35,
+      "capacity": 25,
+      "enrollment": 25,
       "utilization": "100.0%"
     },
     "S014": {
       "course": "PE",
-      "capacity": 35,
-      "enrollment": 15,
-      "utilization": "42.9%"
+      "capacity": 25,
+      "enrollment": 21,
+      "utilization": "84.0%"
     },
     "S015": {
-      "course": "Math 4",
+      "course": "PE",
       "capacity": 25,
-      "enrollment": 13,
-      "utilization": "52.0%"
+      "enrollment": 24,
+      "utilization": "96.0%"
     },
     "S016": {
-      "course": "Math 4",
-      "capacity": 25,
-      "enrollment": 12,
-      "utilization": "48.0%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
     },
     "S017": {
-      "course": "English 9",
-      "capacity": 25,
-      "enrollment": 22,
-      "utilization": "88.0%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
     },
     "S018": {
-      "course": "English 9",
-      "capacity": 25,
-      "enrollment": 3,
-      "utilization": "12.0%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S019": {
-      "course": "English 11",
-      "capacity": 25,
-      "enrollment": 5,
-      "utilization": "20.0%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
     },
     "S020": {
-      "course": "English 11",
-      "capacity": 25,
-      "enrollment": 20,
-      "utilization": "80.0%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
     },
     "S021": {
-      "course": "AP Biology",
-      "capacity": 30,
-      "enrollment": 25,
-      "utilization": "83.3%"
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S022": {
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
     },
     "S023": {
-      "course": "Math 3",
-      "capacity": 25,
-      "enrollment": 25,
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 20,
       "utilization": "100.0%"
+    },
+    "S024": {
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
     },
     "S025": {
-      "course": "English 12",
-      "capacity": 25,
-      "enrollment": 14,
-      "utilization": "56.0%"
-    },
-    "S026": {
-      "course": "English 12",
-      "capacity": 25,
-      "enrollment": 11,
-      "utilization": "44.0%"
-    },
-    "S027": {
-      "course": "US History",
-      "capacity": 25,
-      "enrollment": 25,
+      "course": "Study Hall",
+      "capacity": 20,
+      "enrollment": 20,
       "utilization": "100.0%"
     },
+    "S026": {
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S027": {
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 11,
+      "utilization": "55.0%"
+    },
+    "S028": {
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 9,
+      "utilization": "45.0%"
+    },
     "S029": {
-      "course": "Government",
-      "capacity": 25,
-      "enrollment": 13,
-      "utilization": "52.0%"
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S030": {
-      "course": "Government",
-      "capacity": 25,
-      "enrollment": 12,
-      "utilization": "48.0%"
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S031": {
-      "course": "Biology",
-      "capacity": 30,
-      "enrollment": 23,
-      "utilization": "76.7%"
+      "course": "English 9",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S032": {
-      "course": "Biology",
-      "capacity": 30,
-      "enrollment": 2,
-      "utilization": "6.7%"
+      "course": "English 10",
+      "capacity": 20,
+      "enrollment": 11,
+      "utilization": "55.0%"
     },
     "S033": {
-      "course": "Economics",
-      "capacity": 25,
-      "enrollment": 13,
-      "utilization": "52.0%"
+      "course": "English 10",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
     },
     "S034": {
-      "course": "Economics",
-      "capacity": 25,
-      "enrollment": 12,
-      "utilization": "48.0%"
+      "course": "English 10",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S035": {
       "course": "English 10",
-      "capacity": 25,
-      "enrollment": 25,
-      "utilization": "100.0%"
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S036": {
+      "course": "English 10",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
     },
     "S037": {
-      "course": "Chemistry",
-      "capacity": 30,
-      "enrollment": 25,
-      "utilization": "83.3%"
+      "course": "English 10",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S038": {
-      "course": "Chemistry",
-      "capacity": 30,
-      "enrollment": 0,
-      "utilization": "0.0%"
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S039": {
-      "course": "World History",
-      "capacity": 25,
-      "enrollment": 20,
-      "utilization": "80.0%"
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
     },
     "S040": {
-      "course": "World History",
-      "capacity": 25,
-      "enrollment": 5,
-      "utilization": "20.0%"
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
     },
     "S041": {
-      "course": "Math 1",
-      "capacity": 25,
-      "enrollment": 25,
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 20,
       "utilization": "100.0%"
     },
     "S042": {
-      "course": "Math 1",
-      "capacity": 25,
-      "enrollment": 0,
-      "utilization": "0.0%"
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
     },
     "S043": {
-      "course": "Physics",
-      "capacity": 30,
-      "enrollment": 25,
-      "utilization": "83.3%"
+      "course": "US History",
+      "capacity": 20,
+      "enrollment": 8,
+      "utilization": "40.0%"
     },
     "S044": {
-      "course": "Physics",
-      "capacity": 30,
-      "enrollment": 0,
-      "utilization": "0.0%"
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
     },
     "S045": {
-      "course": "Math 2",
-      "capacity": 25,
-      "enrollment": 22,
-      "utilization": "88.0%"
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
     },
     "S046": {
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
+    },
+    "S047": {
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S048": {
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S049": {
+      "course": "AP Biology",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
+    },
+    "S050": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 13,
+      "utilization": "65.0%"
+    },
+    "S051": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S052": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S053": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 9,
+      "utilization": "45.0%"
+    },
+    "S054": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S055": {
+      "course": "Math 3",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S056": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S057": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S058": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S059": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 12,
+      "utilization": "60.0%"
+    },
+    "S060": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S061": {
+      "course": "Chemistry",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S062": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S063": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S064": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S065": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 12,
+      "utilization": "60.0%"
+    },
+    "S066": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S067": {
+      "course": "Physics",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S068": {
+      "course": "English 12",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S069": {
+      "course": "English 12",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S071": {
+      "course": "English 12",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S072": {
+      "course": "English 12",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S073": {
+      "course": "English 12",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S074": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S075": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S076": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
+    },
+    "S077": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S078": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S079": {
+      "course": "Math 1",
+      "capacity": 20,
+      "enrollment": 10,
+      "utilization": "50.0%"
+    },
+    "S080": {
+      "course": "Economics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S081": {
+      "course": "Economics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S082": {
+      "course": "Economics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S083": {
+      "course": "Economics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S085": {
+      "course": "Economics",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S086": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S087": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
+    },
+    "S088": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S089": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 8,
+      "utilization": "40.0%"
+    },
+    "S090": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S091": {
+      "course": "World History",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S092": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
+    },
+    "S093": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 12,
+      "utilization": "60.0%"
+    },
+    "S094": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
+    },
+    "S095": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
+    },
+    "S096": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S097": {
+      "course": "Math 4",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S098": {
       "course": "Math 2",
-      "capacity": 25,
-      "enrollment": 3,
-      "utilization": "12.0%"
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S099": {
+      "course": "Math 2",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
+    },
+    "S100": {
+      "course": "Math 2",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
+    },
+    "S101": {
+      "course": "Math 2",
+      "capacity": 20,
+      "enrollment": 15,
+      "utilization": "75.0%"
+    },
+    "S102": {
+      "course": "Math 2",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S103": {
+      "course": "Math 2",
+      "capacity": 20,
+      "enrollment": 18,
+      "utilization": "90.0%"
+    },
+    "S105": {
+      "course": "Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S106": {
+      "course": "Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S107": {
+      "course": "Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S108": {
+      "course": "Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S109": {
+      "course": "Biology",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S110": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S111": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 11,
+      "utilization": "55.0%"
+    },
+    "S112": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 19,
+      "utilization": "95.0%"
+    },
+    "S113": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 14,
+      "utilization": "70.0%"
+    },
+    "S114": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 16,
+      "utilization": "80.0%"
+    },
+    "S115": {
+      "course": "English 11",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S116": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S117": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S118": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
+    },
+    "S119": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 20,
+      "utilization": "100.0%"
+    },
+    "S120": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 17,
+      "utilization": "85.0%"
+    },
+    "S121": {
+      "course": "Government",
+      "capacity": 20,
+      "enrollment": 6,
+      "utilization": "30.0%"
+    },
+    "S122": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 11,
+      "utilization": "73.3%"
+    },
+    "S123": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 15,
+      "utilization": "100.0%"
+    },
+    "S124": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 15,
+      "utilization": "100.0%"
+    },
+    "S125": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 6,
+      "utilization": "40.0%"
+    },
+    "S126": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 15,
+      "utilization": "100.0%"
+    },
+    "S127": {
+      "course": "Sports Med",
+      "capacity": 15,
+      "enrollment": 12,
+      "utilization": "80.0%"
     }
   }
 }

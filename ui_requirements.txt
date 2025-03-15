@@ -1,0 +1,3 @@
+gradio==4.44.1
+markupsafe==2.0.1
+pandas

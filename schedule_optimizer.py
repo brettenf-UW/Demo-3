@@ -757,17 +757,21 @@ Include only the CSV content in your response, no explanation or other text."""
                     count = section_counts.get(section_id, 0)
                     utilization = count / capacity if capacity > 0 else 0
                     
-                    if utilization < 0.5 and section['Course ID'] not in ['Medical Career', 'Heroes Teach']:
-                        low_util_sections.append((section_id, utilization))
+                    # Modified utilization criteria for better balance
+                    if ((utilization < 0.5) or 
+                        (utilization < 0.55 and capacity > 18 and count < 10)):  # Target larger sections with few students
+                        # Don't remove certain courses that need to be preserved
+                        if section['Course ID'] not in ['Medical Career', 'Heroes Teach', 'AP Biology']:
+                            low_util_sections.append((section_id, utilization))
                         
                 # Sort by utilization (ascending)
                 low_util_sections.sort(key=lambda x: x[1])
                 print(f"Found {len(low_util_sections)} low-utilization sections")
                 
-                # Remove at least two low utilization sections
+                # Remove more low utilization sections
                 sections_to_remove = []
                 for i, (section_id, util) in enumerate(low_util_sections):
-                    if i < 2:  # Remove up to 2 sections
+                    if i < 5:  # Remove up to 5 sections per run for more aggressive optimization
                         sections_to_remove.append(section_id)
                         print(f"Removing section {section_id} with {util:.1%} utilization")
                 

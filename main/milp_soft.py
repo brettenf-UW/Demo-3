@@ -263,14 +263,16 @@ class ScheduleOptimizer:
         missed_requests_penalty = 1000 * gp.quicksum(self.missed_request[student_id, course_id]
                                               for (student_id, course_id) in self.missed_request)
         
-        # Secondary objective: minimize capacity violations (increased priority)
-        capacity_penalty = 500 * gp.quicksum(self.capacity_violation[section_id]
+        # Secondary objective: minimize capacity violations (using an even higher weight)
+        capacity_penalty = 800 * gp.quicksum(self.capacity_violation[section_id]
                                           for section_id in self.capacity_violation)
+                                          
+        # Log the weights being used
+        self.logger.info(f"Weights - Missed requests: 1000, Capacity violations: 800")
         
         # Set objective to minimize penalties (equivalent to maximizing satisfaction)
         self.model.setObjective(missed_requests_penalty + capacity_penalty, GRB.MINIMIZE)
         self.logger.info("Objective function with soft constraints set successfully")
-        self.logger.info(f"Weights - Missed requests: 1000, Capacity violations: 500")
 
     def greedy_initial_solution(self):
         """Generate a feasible initial solution using the advanced greedy algorithm"""
@@ -415,17 +417,11 @@ class ScheduleOptimizer:
             self.model.setParam('Presolve', 1)  # Use standard presolve
             self.model.setParam('Method', 1)    # Use dual simplex for LP relaxations
             self.model.setParam('MIPFocus', 1)  # Focus aggressively on finding feasible solutions
-            
-            # Always aim for perfect solution regardless of problem size
-            self.model.setParam('BestObjStop', 0)  # Stop after finding a solution with 0 objective (perfect)
-            self.logger.info("Setting BestObjStop to 0 - will search for perfect solution")
+        
             
             # Remove solution limit to allow solver to keep searching
-            self.model.setParam('SolutionLimit', 100000)  # Allow many solutions to be found
-            self.model.setParam('MIPGapAbs', 0.001)  # Much stricter termination criterion
-            
-            # Other parameters
-            self.model.setParam('MIPGap', 0.001)  # 0.1% MIP gap tolerance - much stricter
+            self.model.setParam('SolutionLimit', 10000000)  # Allow many solutions to be found
+
             self.model.setParam('TimeLimit', 25200)  # 7 hours time limit
             
             # Set up node file storage
