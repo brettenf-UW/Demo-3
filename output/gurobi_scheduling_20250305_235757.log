@@ -1,0 +1,193 @@
+2025-03-05 23:57:58,028 - INFO - Set parameter WLSAccessID
+2025-03-05 23:57:58,028 - INFO - Set parameter WLSSecret
+2025-03-05 23:57:58,029 - INFO - Set parameter LicenseID to value 2628134
+2025-03-05 23:57:58,031 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-05 23:57:58,031 - INFO - Initialization complete
+2025-03-05 23:58:11,525 - INFO - Variables created successfully
+2025-03-05 23:59:54,389 - INFO - Constraints added successfully
+2025-03-05 23:59:54,441 - INFO - Objective function with soft constraints set successfully
+2025-03-05 23:59:55,189 - INFO - ================================================================================
+2025-03-05 23:59:55,189 - INFO - SYSTEM CONFIGURATION
+2025-03-05 23:59:55,189 - INFO - System has 373.7 GB of RAM available
+2025-03-05 23:59:55,189 - INFO - Setting Gurobi memory limit to 355 GB (95% of available RAM)
+2025-03-05 23:59:55,189 - INFO - Set parameter MemLimit to value 363520
+2025-03-05 23:59:55,189 - INFO - Set parameter Presolve to value 1
+2025-03-05 23:59:55,189 - INFO - Set parameter Method to value 1
+2025-03-05 23:59:55,189 - INFO - Set parameter MIPFocus to value 1
+2025-03-05 23:59:55,189 - INFO - Set parameter MIPGap to value 0.1
+2025-03-05 23:59:55,189 - INFO - Set parameter TimeLimit to value 25200
+2025-03-05 23:59:55,189 - INFO - Set parameter NodefileStart to value 0.95
+2025-03-05 23:59:55,189 - INFO - Set parameter NodefileDir to value "/tmp/gurobi_nodefiles"
+2025-03-05 23:59:55,189 - INFO - Node file directory: /tmp/gurobi_nodefiles
+2025-03-05 23:59:55,189 - INFO - Will switch to disk storage when memory reaches 95.0% of allocated RAM
+2025-03-05 23:59:55,191 - INFO - Set parameter Threads to value 32
+2025-03-05 23:59:55,191 - INFO - Using 32 threads out of 48 available cores
+2025-03-05 23:59:55,191 - INFO - Generating initial solution using advanced greedy algorithm...
+2025-03-06 00:00:43,015 - INFO - Greedy algorithm generated initial values for: 8937 x vars, 482 z vars, 8937 y vars
+2025-03-06 00:00:43,075 - INFO - Initial solution: 8937/1900 students assigned, 482/482 sections used
+2025-03-06 00:00:43,075 - INFO - ================================================================================
+2025-03-06 00:00:43,075 - INFO - STARTING OPTIMIZATION
+2025-03-06 00:00:43,076 - INFO - Maximum possible satisfied requests: 11400
+2025-03-06 00:00:43,076 - INFO - ================================================================================
+2025-03-06 00:00:45,603 - INFO - Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+2025-03-06 00:00:45,604 - INFO - 
+2025-03-06 00:00:45,604 - INFO - CPU model: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+2025-03-06 00:00:45,604 - INFO - Thread count: 24 physical cores, 48 logical processors, using up to 32 threads
+2025-03-06 00:00:45,604 - INFO - 
+2025-03-06 00:00:45,605 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-06 00:00:45,605 - INFO - Optimize a model with 9085978 rows, 3411984 columns and 24925246 nonzeros
+2025-03-06 00:00:45,913 - INFO - Model fingerprint: 0x6a2172e5
+2025-03-06 00:00:45,917 - INFO - Variable types: 0 continuous, 3411984 integer (3411502 binary)
+2025-03-06 00:00:45,970 - INFO - Coefficient statistics:
+2025-03-06 00:00:45,970 - INFO -   Matrix range     [1e+00, 1e+00]
+2025-03-06 00:00:45,970 - INFO -   Objective range  [1e+00, 1e+03]
+2025-03-06 00:00:45,970 - INFO -   Bounds range     [1e+00, 1e+00]
+2025-03-06 00:00:45,970 - INFO -   RHS range        [1e+00, 4e+01]
+2025-03-06 00:00:45,970 - INFO - 
+2025-03-06 00:00:46,039 - INFO - Warning: Completing partial solution with 3393628 unfixed non-continuous variables out of 3411984
+2025-03-06 00:00:50,897 - INFO - Processing user MIP start: 0 nodes explored in subMIP, total elapsed time 5s
+2025-03-06 00:00:55,612 - INFO - Processing user MIP start: 0 nodes explored in subMIP, total elapsed time 10s
+2025-03-06 00:00:58,199 - INFO - User MIP start produced solution with objective 2000 (12.60s)
+2025-03-06 00:00:58,749 - INFO - Loaded user MIP start with objective 2000
+2025-03-06 00:00:58,749 - INFO - Processed MIP start in 12.78 seconds (9.58 work units)
+2025-03-06 00:00:58,749 - INFO - 
+2025-03-06 00:01:03,902 - INFO - Presolve removed 978 rows and 39 columns (presolve time = 5s) ...
+2025-03-06 00:01:09,706 - INFO - Presolve removed 980 rows and 39 columns (presolve time = 11s) ...
+2025-03-06 00:01:14,058 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 15s) ...
+2025-03-06 00:01:18,773 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 20s) ...
+2025-03-06 00:01:23,783 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 25s) ...
+2025-03-06 00:01:28,771 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 30s) ...
+2025-03-06 00:01:33,782 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 35s) ...
+2025-03-06 00:01:38,817 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 40s) ...
+2025-03-06 00:01:43,836 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 45s) ...
+2025-03-06 00:01:48,857 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 50s) ...
+2025-03-06 00:01:53,769 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 55s) ...
+2025-03-06 00:01:58,794 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 60s) ...
+2025-03-06 00:02:03,804 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 65s) ...
+2025-03-06 00:02:08,833 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 70s) ...
+2025-03-06 00:02:13,855 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 75s) ...
+2025-03-06 00:02:18,773 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 80s) ...
+2025-03-06 00:02:23,793 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 85s) ...
+2025-03-06 00:02:28,808 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 90s) ...
+2025-03-06 00:02:33,828 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 95s) ...
+2025-03-06 00:02:38,841 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 100s) ...
+2025-03-06 00:02:43,856 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 105s) ...
+2025-03-06 00:02:48,771 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 110s) ...
+2025-03-06 00:02:53,792 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 115s) ...
+2025-03-06 00:02:58,810 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 120s) ...
+2025-03-06 00:03:03,835 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 125s) ...
+2025-03-06 00:03:08,858 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 130s) ...
+2025-03-06 00:03:13,770 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 135s) ...
+2025-03-06 00:03:18,781 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 140s) ...
+2025-03-06 00:03:23,805 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 145s) ...
+2025-03-06 00:03:28,826 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 150s) ...
+2025-03-06 00:03:33,845 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 155s) ...
+2025-03-06 00:03:38,860 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 160s) ...
+2025-03-06 00:03:43,915 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 165s) ...
+2025-03-06 00:03:48,789 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 170s) ...
+2025-03-06 00:03:53,846 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 175s) ...
+2025-03-06 00:03:58,782 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 180s) ...
+2025-03-06 00:04:03,766 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 185s) ...
+2025-03-06 00:04:08,770 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 190s) ...
+2025-03-06 00:04:13,938 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 195s) ...
+2025-03-06 00:04:18,831 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 200s) ...
+2025-03-06 00:04:23,956 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 205s) ...
+2025-03-06 00:04:28,835 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 210s) ...
+2025-03-06 00:04:33,939 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 215s) ...
+2025-03-06 00:04:38,807 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 220s) ...
+2025-03-06 00:04:43,927 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 225s) ...
+2025-03-06 00:04:48,790 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 230s) ...
+2025-03-06 00:04:53,862 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 235s) ...
+2025-03-06 00:04:58,769 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 240s) ...
+2025-03-06 00:05:03,906 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 245s) ...
+2025-03-06 00:05:08,800 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 250s) ...
+2025-03-06 00:05:13,903 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 255s) ...
+2025-03-06 00:05:19,285 - INFO - Presolve removed 982 rows and 41 columns (presolve time = 261s) ...
+2025-03-06 00:05:21,996 - INFO - Presolve removed 982 rows and 41 columns
+2025-03-06 00:05:21,996 - INFO - Presolve time: 263.23s
+2025-03-06 00:05:22,060 - INFO - Presolved: 9084996 rows, 3411943 columns, 24924715 nonzeros
+2025-03-06 00:05:28,499 - INFO - Variable types: 0 continuous, 3411943 integer (3411461 binary)
+2025-03-06 00:05:34,961 - INFO - 
+2025-03-06 00:05:34,961 - INFO - Root simplex log...
+2025-03-06 00:05:34,961 - INFO - 
+2025-03-06 00:05:34,961 - INFO - Iteration    Objective       Primal Inf.    Dual Inf.      Time
+2025-03-06 00:05:34,961 - INFO -        0   -2.5000000e+01   1.190800e+04   0.000000e+00    289s
+2025-03-06 00:05:36,902 - INFO -    12082    0.0000000e+00   2.579959e+05   0.000000e+00    291s
+2025-03-06 00:05:42,228 - INFO -    20770    0.0000000e+00   7.315545e+05   0.000000e+00    297s
+2025-03-06 00:05:46,483 - INFO -    25985    1.3078010e-03   1.376145e+05   0.000000e+00    301s
+2025-03-06 00:05:50,856 - INFO -    28775    1.4596678e-03   6.429951e+04   0.000000e+00    305s
+2025-03-06 00:05:59,541 - INFO -    32235    1.6036189e-03   4.700811e+04   0.000000e+00    314s
+2025-03-06 00:06:06,332 - INFO -    33588    1.6582804e-03   8.055257e+04   0.000000e+00    321s
+2025-03-06 00:06:13,253 - INFO -    34941    1.7118630e-03   5.898509e+04   0.000000e+00    328s
+2025-03-06 00:06:20,056 - INFO -    36294    1.7635542e-03   2.265526e+05   0.000000e+00    334s
+2025-03-06 00:06:25,689 - INFO -    37647    1.8170444e-03   2.203651e+05   0.000000e+00    340s
+2025-03-06 00:06:31,960 - INFO -    39000    1.8693619e-03   4.683307e+04   0.000000e+00    346s
+2025-03-06 00:06:38,897 - INFO -    41706    1.9498107e-03   3.962083e+05   0.000000e+00    353s
+2025-03-06 00:06:42,447 - INFO -    43059    1.9862407e-03   3.500578e+04   0.000000e+00    357s
+2025-03-06 00:06:45,891 - INFO -    44412    2.0251919e-03   4.332001e+05   0.000000e+00    360s
+2025-03-06 00:06:54,376 - INFO -    47118    2.0827825e-03   5.955370e+04   0.000000e+00    369s
+2025-03-06 00:06:59,133 - INFO -    48471    2.1044175e-03   3.601976e+05   0.000000e+00    374s
+2025-03-06 00:07:03,892 - INFO -    49824    2.1182572e-03   3.169299e+04   0.000000e+00    378s
+2025-03-06 00:07:09,012 - INFO -    51177    2.1318742e-03   5.649612e+04   0.000000e+00    383s
+2025-03-06 00:07:13,991 - INFO -    52370    2.1433266e-03   6.190816e+04   0.000000e+00    388s
+2025-03-06 00:07:16,436 - INFO -    53723    2.1487178e-03   5.951687e+03   0.000000e+00    391s
+2025-03-06 00:07:22,520 - INFO -    56429    2.1593064e-03   4.465172e+04   0.000000e+00    397s
+2025-03-06 00:07:25,930 - INFO -    57782    2.1628354e-03   3.022222e+03   0.000000e+00    400s
+2025-03-06 00:07:30,635 - INFO -    59135    2.1658962e-03   3.564876e+03   0.000000e+00    405s
+2025-03-06 00:07:35,851 - INFO -    60488    2.1673901e-03   2.705536e+03   0.000000e+00    410s
+2025-03-06 00:07:43,471 - INFO -    61841    2.1690244e-03   3.523591e+03   0.000000e+00    418s
+2025-03-06 00:07:49,326 - INFO -    63194    2.1704067e-03   2.701962e+03   0.000000e+00    424s
+2025-03-06 00:07:56,605 - INFO -    64547    2.1721493e-03   5.367096e+03   0.000000e+00    431s
+2025-03-06 00:08:05,862 - INFO -    67253    2.1744978e-03   5.892999e+03   0.000000e+00    440s
+2025-03-06 00:08:14,066 - INFO -    68606    2.1757943e-03   2.041507e+03   0.000000e+00    448s
+2025-03-06 00:08:19,185 - INFO -    69959    2.1770252e-03   2.597470e+03   0.000000e+00    454s
+2025-03-06 00:08:28,057 - INFO -    71312    2.1783039e-03   1.968008e+03   0.000000e+00    462s
+2025-03-06 00:08:44,091 - INFO -    72665    2.2333563e-03   1.339396e+03   0.000000e+00    478s
+2025-03-06 00:09:00,234 - INFO -    73785    2.2407848e-03   2.225143e+03   0.000000e+00    495s
+2025-03-06 00:09:17,503 - INFO -    74595    2.2458746e-03   6.144265e+02   0.000000e+00    512s
+2025-03-06 00:09:35,062 - INFO -    75625    2.2504529e-03   5.322049e+02   0.000000e+00    529s
+2025-03-06 00:09:53,729 - INFO -    76425    2.2528266e-03   4.295379e+02   0.000000e+00    548s
+2025-03-06 00:10:11,207 - INFO -    77375    2.2549259e-03   4.136351e+03   0.000000e+00    566s
+2025-03-06 00:10:29,212 - INFO -    78445    2.2569812e-03   1.679813e+02   0.000000e+00    584s
+2025-03-06 00:10:41,305 - INFO -    79302    2.2575997e-03   5.599010e-01   0.000000e+00    596s
+2025-03-06 00:10:44,979 - INFO -    79345    0.0000000e+00   0.000000e+00   0.000000e+00    599s
+2025-03-06 00:10:44,979 - INFO - 
+2025-03-06 00:10:44,979 - INFO - Root relaxation: objective 0.000000e+00, 79345 iterations, 315.11 seconds (504.27 work units)
+2025-03-06 00:10:47,952 - INFO - Total elapsed time = 602.35s
+2025-03-06 00:12:03,363 - INFO - Total elapsed time = 677.76s
+2025-03-06 00:14:44,914 - INFO - Total elapsed time = 839.31s
+2025-03-06 00:21:05,444 - INFO - 
+2025-03-06 00:21:05,445 - INFO -     Nodes    |    Current Node    |     Objective Bounds      |     Work
+2025-03-06 00:21:05,445 - INFO -  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+2025-03-06 00:21:05,445 - INFO - 
+2025-03-06 00:21:05,445 - INFO -      0     0    0.00000    0  104 2000.00000    0.00000   100%     - 1219s
+2025-03-06 00:31:42,789 - INFO - H    0     0                       0.0000000    0.00000  0.00%     - 1857s
+2025-03-06 00:31:42,820 - INFO -      0     0    0.00000    0  104    0.00000    0.00000  0.00%     - 1857s
+2025-03-06 00:31:43,446 - INFO - 
+2025-03-06 00:31:43,447 - INFO - Explored 1 nodes (189681 simplex iterations) in 1857.84 seconds (2630.70 work units)
+2025-03-06 00:31:43,447 - INFO - Thread count was 32 (of 48 available processors)
+2025-03-06 00:31:43,447 - INFO - 
+2025-03-06 00:31:43,447 - INFO - Solution count 2: 0 2000 
+2025-03-06 00:31:43,447 - INFO - 
+2025-03-06 00:31:43,447 - INFO - Optimal solution found (tolerance 1.00e-01)
+2025-03-06 00:31:43,586 - INFO - Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+2025-03-06 00:31:43,586 - INFO - 
+2025-03-06 00:31:43,586 - INFO - User-callback calls 8157, time in user-callback 0.08 sec
+2025-03-06 00:31:43,586 - INFO - ================================================================================
+2025-03-06 00:31:43,586 - INFO - OPTIMIZATION RESULTS
+2025-03-06 00:31:43,603 - INFO - STATUS: Found optimal solution!
+2025-03-06 00:31:43,603 - INFO - SATISFIED REQUESTS: 11400 out of 11400
+2025-03-06 00:31:43,603 - INFO - SATISFACTION RATE: 100.00%
+2025-03-06 00:31:43,605 - INFO - CAPACITY VIOLATIONS: 0 sections over capacity
+2025-03-06 00:31:43,605 - INFO - TOTAL OVERAGES: 0 students over capacity
+2025-03-06 00:31:43,605 - INFO - OBJECTIVE VALUE: 0.0
+2025-03-06 00:31:43,605 - INFO -   - Missed requests penalty: 0
+2025-03-06 00:31:43,605 - INFO -   - Capacity violations penalty: 0.0
+2025-03-06 00:31:43,605 - INFO - RUNTIME: 1857.98 seconds
+2025-03-06 00:31:43,606 - INFO - NODES EXPLORED: 1.0
+2025-03-06 00:31:43,606 - INFO - MIP GAP: 0.00%
+2025-03-06 00:31:43,606 - INFO - PEAK MEMORY USAGE: Not available
+2025-03-06 00:31:43,606 - INFO - ================================================================================
+2025-03-06 00:31:43,606 - INFO - Saving solution files...
+2025-03-06 00:31:44,320 - INFO - Solution saved successfully
+2025-03-06 00:31:44,321 - INFO - Warning: environment still referenced so free is deferred (Continue to use WLS)

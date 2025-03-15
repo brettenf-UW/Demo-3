@@ -1,0 +1,146 @@
+2025-03-05 20:56:36,462 - INFO - Set parameter WLSAccessID
+2025-03-05 20:56:36,462 - INFO - Set parameter WLSSecret
+2025-03-05 20:56:36,462 - INFO - Set parameter LicenseID to value 2628134
+2025-03-05 20:56:36,465 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-05 20:56:36,465 - INFO - Initialization complete
+2025-03-05 20:56:37,125 - INFO - Variables created successfully
+2025-03-05 20:56:42,289 - INFO - Constraints added successfully
+2025-03-05 20:56:42,303 - INFO - Objective function set successfully
+2025-03-05 20:56:42,437 - INFO - System has 373.7 GB of RAM available
+2025-03-05 20:56:42,438 - INFO - Set parameter MemLimit to value 344064
+2025-03-05 20:56:42,438 - INFO - Set Gurobi memory limit to 336 GB
+2025-03-05 20:56:42,438 - INFO - Set parameter MIPGap to value 0.1
+2025-03-05 20:56:42,438 - INFO - Set parameter TimeLimit to value 7200
+2025-03-05 20:56:42,438 - INFO - Set parameter MIPFocus to value 1
+2025-03-05 20:56:42,438 - INFO - Set parameter Presolve to value 2
+2025-03-05 20:56:42,438 - INFO - Set parameter NodefileStart to value 0.95
+2025-03-05 20:56:42,438 - INFO - Set parameter NodefileDir to value "/tmp/gurobi_nodefiles"
+2025-03-05 20:56:42,438 - INFO - Using node file directory: /tmp/gurobi_nodefiles
+2025-03-05 20:56:42,438 - INFO - Set parameter NodeMethod to value 1
+2025-03-05 20:56:42,438 - INFO - Set parameter PoolSearchMode to value 2
+2025-03-05 20:56:42,438 - INFO - Set parameter RINS to value 10
+2025-03-05 20:56:42,442 - INFO - Set parameter Threads to value 46
+2025-03-05 20:56:42,442 - INFO - Using 46 threads out of 48 available cores
+2025-03-05 20:56:42,813 - INFO - Greedy initial solution generated successfully
+2025-03-05 20:56:42,814 - INFO - Starting optimization - accepting solutions within 10% of optimal
+2025-03-05 20:56:42,814 - INFO - Maximum possible satisfied requests: 2400
+2025-03-05 20:56:42,939 - INFO - Gurobi Optimizer version 10.0.3 build v10.0.3rc0 (linux64)
+2025-03-05 20:56:42,939 - INFO - 
+2025-03-05 20:56:42,939 - INFO - CPU model: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+2025-03-05 20:56:42,939 - INFO - Thread count: 24 physical cores, 48 logical processors, using up to 46 threads
+2025-03-05 20:56:42,939 - INFO - 
+2025-03-05 20:56:42,941 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-05 20:56:42,941 - INFO - Optimize a model with 437110 rows, 162518 columns and 1186660 nonzeros
+2025-03-05 20:56:42,955 - INFO - Model fingerprint: 0xf107fa98
+2025-03-05 20:56:42,955 - INFO - Variable types: 0 continuous, 162518 integer (162518 binary)
+2025-03-05 20:56:42,958 - INFO - Coefficient statistics:
+2025-03-05 20:56:42,958 - INFO -   Matrix range     [1e+00, 1e+00]
+2025-03-05 20:56:42,958 - INFO -   Objective range  [1e+00, 1e+00]
+2025-03-05 20:56:42,958 - INFO -   Bounds range     [1e+00, 1e+00]
+2025-03-05 20:56:42,958 - INFO -   RHS range        [1e+00, 4e+01]
+2025-03-05 20:56:42,958 - INFO - 
+2025-03-05 20:56:42,968 - INFO - User MIP start did not produce a new incumbent solution
+2025-03-05 20:56:42,976 - INFO - User MIP start violates constraint course_requirement_ST001_Math_1 by 1.000000000
+2025-03-05 20:56:42,976 - INFO - 
+2025-03-05 20:56:48,137 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 5s) ...
+2025-03-05 20:57:17,070 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 34s) ...
+2025-03-05 20:57:27,710 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 45s) ...
+2025-03-05 20:57:28,143 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 45s) ...
+2025-03-05 20:57:44,432 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 61s) ...
+2025-03-05 20:58:02,274 - INFO - Presolve removed 299 rows and 35 columns (presolve time = 79s) ...
+2025-03-05 20:58:03,118 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 80s) ...
+2025-03-05 20:58:08,122 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 85s) ...
+2025-03-05 20:58:13,110 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 90s) ...
+2025-03-05 20:58:40,969 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 118s) ...
+2025-03-05 20:58:51,785 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 129s) ...
+2025-03-05 20:59:09,385 - INFO - Presolve removed 18371 rows and 35 columns (presolve time = 146s) ...
+2025-03-05 20:59:09,532 - INFO - Presolve removed 18371 rows and 35 columns
+2025-03-05 20:59:09,532 - INFO - Presolve time: 146.42s
+2025-03-05 20:59:09,534 - INFO - Presolved: 418739 rows, 162483 columns, 1550186 nonzeros
+2025-03-05 20:59:09,781 - INFO - Variable types: 0 continuous, 162483 integer (162483 binary)
+2025-03-05 20:59:12,749 - INFO - 
+2025-03-05 20:59:12,749 - INFO - Deterministic concurrent LP optimizer: primal simplex, dual simplex, and barrier
+2025-03-05 20:59:12,749 - INFO - Showing barrier log only...
+2025-03-05 20:59:12,749 - INFO - 
+2025-03-05 20:59:18,693 - INFO - Root relaxation presolved: 418739 rows, 162483 columns, 1550186 nonzeros
+2025-03-05 20:59:18,693 - INFO - 
+2025-03-05 20:59:19,051 - INFO - Root barrier log...
+2025-03-05 20:59:19,051 - INFO - 
+2025-03-05 20:59:19,066 - INFO - Ordering time: 0.01s
+2025-03-05 20:59:19,099 - INFO - 
+2025-03-05 20:59:19,099 - INFO - Barrier statistics:
+2025-03-05 20:59:19,099 - INFO -  AA' NZ     : 1.374e+05
+2025-03-05 20:59:19,099 - INFO -  Factor NZ  : 8.519e+05 (roughly 13 MB of memory)
+2025-03-05 20:59:19,099 - INFO -  Factor Ops : 1.082e+08 (less than 1 second per iteration)
+2025-03-05 20:59:19,099 - INFO -  Threads    : 44
+2025-03-05 20:59:19,118 - INFO - 
+2025-03-05 20:59:19,118 - INFO -                   Objective                Residual
+2025-03-05 20:59:19,118 - INFO - Iter       Primal          Dual         Primal    Dual     Compl     Time
+2025-03-05 20:59:19,118 - INFO -    0   2.40000000e+03  2.40928438e+03  3.39e+01 0.00e+00  2.62e-01   156s
+2025-03-05 20:59:19,128 - INFO -    1   2.40000000e+03  2.53076162e+03  1.51e+01 1.51e-02  1.06e-01   156s
+2025-03-05 20:59:19,138 - INFO -    2   2.40000000e+03  2.51850507e+03  7.19e-01 2.50e-16  1.03e-02   156s
+2025-03-05 20:59:19,148 - INFO -    3   2.40000000e+03  2.42494573e+03  1.39e-01 2.22e-16  1.62e-03   156s
+2025-03-05 20:59:19,157 - INFO -    4   2.40000000e+03  2.40985982e+03  3.62e-04 9.19e-17  5.16e-04   156s
+2025-03-05 20:59:19,164 - INFO -    5   2.40000000e+03  2.40000004e+03  3.38e-14 6.51e-17  2.08e-09   156s
+2025-03-05 20:59:19,172 - INFO -    6   2.40000000e+03  2.40000000e+03  3.24e-14 3.31e-22  2.08e-15   156s
+2025-03-05 20:59:19,173 - INFO - 
+2025-03-05 20:59:19,173 - INFO - Barrier solved model in 6 iterations and 156.23 seconds (113.11 work units)
+2025-03-05 20:59:19,173 - INFO - Optimal objective 2.40000000e+03
+2025-03-05 20:59:19,173 - INFO - 
+2025-03-05 20:59:19,176 - INFO - 
+2025-03-05 20:59:19,176 - INFO - Root crossover log...
+2025-03-05 20:59:19,176 - INFO - 
+2025-03-05 20:59:19,179 - INFO -        0 DPushes remaining with DInf 0.0000000e+00               156s
+2025-03-05 20:59:19,182 - INFO - 
+2025-03-05 20:59:19,182 - INFO -      863 PPushes remaining with PInf 0.0000000e+00               156s
+2025-03-05 20:59:19,191 - INFO -        0 PPushes remaining with PInf 0.0000000e+00               156s
+2025-03-05 20:59:19,192 - INFO - 
+2025-03-05 20:59:19,192 - INFO -   Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00    156s
+2025-03-05 20:59:19,192 - INFO - 
+2025-03-05 20:59:19,194 - INFO - 
+2025-03-05 20:59:19,194 - INFO - Root simplex log...
+2025-03-05 20:59:19,194 - INFO - 
+2025-03-05 20:59:19,194 - INFO - Iteration    Objective       Primal Inf.    Dual Inf.      Time
+2025-03-05 20:59:19,194 - INFO -      866    2.4000000e+03   0.000000e+00   0.000000e+00    156s
+2025-03-05 20:59:19,198 - INFO -      866    2.4000000e+03   0.000000e+00   0.000000e+00    156s
+2025-03-05 20:59:19,256 - INFO - 
+2025-03-05 20:59:19,256 - INFO - Use crossover to convert LP symmetric solution to basic solution...
+2025-03-05 20:59:19,695 - INFO - 
+2025-03-05 20:59:19,695 - INFO - Root crossover log...
+2025-03-05 20:59:19,695 - INFO - 
+2025-03-05 20:59:19,774 - INFO -    11703 PPushes remaining with PInf 0.0000000e+00               157s
+2025-03-05 20:59:20,796 - INFO - Concurrent spin time: 0.20s
+2025-03-05 20:59:20,796 - INFO - 
+2025-03-05 20:59:20,796 - INFO - Solved with dual simplex
+2025-03-05 20:59:20,809 - INFO - 
+2025-03-05 20:59:20,809 - INFO - Root relaxation: objective 2.400000e+03, 14508 iterations, 8.06 seconds (4.80 work units)
+2025-03-05 20:59:21,134 - INFO - 
+2025-03-05 20:59:21,134 - INFO -     Nodes    |    Current Node    |     Objective Bounds      |     Work
+2025-03-05 20:59:21,134 - INFO -  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+2025-03-05 20:59:21,134 - INFO - 
+2025-03-05 20:59:21,134 - INFO - H    0     0                    2400.0000000 2400.00000  0.00%     -  158s
+2025-03-05 20:59:22,429 - INFO -      0     0          -    0      2400.00000 2400.00000  0.00%     -  159s
+2025-03-05 20:59:22,429 - INFO - 
+2025-03-05 20:59:22,429 - INFO - Optimal solution found at node 0 - now completing solution pool...
+2025-03-05 20:59:22,537 - INFO - 
+2025-03-05 20:59:22,537 - INFO -     Nodes    |    Current Node    |      Pool Obj. Bounds     |     Work
+2025-03-05 20:59:22,537 - INFO -              |                    |   Worst                   |
+2025-03-05 20:59:22,537 - INFO -  Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+2025-03-05 20:59:22,537 - INFO - 
+2025-03-05 20:59:22,538 - INFO -      0     0          -    0               - 2400.00000      -     -  159s
+2025-03-05 20:59:22,554 - INFO -      0     0          -    0               - 2400.00000      -     -  159s
+2025-03-05 20:59:22,876 - INFO -      0     2          -    0               - 2400.00000      -     -  159s
+2025-03-05 20:59:23,214 - INFO -      1     4          -    1               - 2400.00000      -   0.0  160s
+2025-03-05 20:59:24,655 - INFO - 
+2025-03-05 20:59:24,655 - INFO - Explored 31 nodes (23110 simplex iterations) in 161.72 seconds (116.91 work units)
+2025-03-05 20:59:24,656 - INFO - Thread count was 46 (of 48 available processors)
+2025-03-05 20:59:24,656 - INFO - 
+2025-03-05 20:59:24,656 - INFO - Solution count 10: 2400 2400 2400 ... 2400
+2025-03-05 20:59:24,657 - INFO - 
+2025-03-05 20:59:24,657 - INFO - Optimal solution found (tolerance 1.00e-01)
+2025-03-05 20:59:24,666 - INFO - Best objective 2.400000000000e+03, best bound 2.400000000000e+03, gap 0.0000%
+2025-03-05 20:59:24,757 - INFO - Found solution within 10% of optimal
+2025-03-05 20:59:24,757 - INFO - Satisfied requests: 2400.0 out of 2400
+2025-03-05 20:59:24,758 - INFO - Satisfaction rate: 100.00%
+2025-03-05 20:59:24,824 - INFO - Solution saved successfully
+2025-03-05 20:59:24,825 - INFO - Warning: environment still referenced so free is deferred (Continue to use WLS)

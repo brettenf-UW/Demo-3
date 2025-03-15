@@ -1,0 +1,10 @@
+anthropic
+pandas
+python-dotenv
+openpyxl>=3.1.2
+pulp>=2.7.0
+matplotlib>=3.8.0
+numpy>=1.24.0
+psutil>=5.9.0
+ortools>=9.6.2534
+gurobipy>=10.0.0

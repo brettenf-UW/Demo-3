@@ -1,0 +1,8 @@
+2025-03-05 20:49:16,645 - INFO - Set parameter WLSAccessID
+2025-03-05 20:49:16,645 - INFO - Set parameter WLSSecret
+2025-03-05 20:49:16,645 - INFO - Set parameter LicenseID to value 2628134
+2025-03-05 20:49:16,647 - INFO - Academic license 2628134 - for non-commercial use only - registered to bs___@uw.edu
+2025-03-05 20:49:16,647 - INFO - Initialization complete
+2025-03-05 20:49:29,323 - INFO - Variables created successfully
+2025-03-05 20:50:56,614 - INFO - Optimization interrupted by user
+2025-03-05 20:50:56,614 - INFO - Warning: environment still referenced so free is deferred (Continue to use WLS)
