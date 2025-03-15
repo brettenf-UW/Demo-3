@@ -1,3 +1,4 @@
-Metric,Count,Total,Percentage,Total Sections,Total Overages
-Missed Requests,0,1200.0,0.00%,,
-Sections Over Capacity,1,,,50.0,1.0
+Metric,Count,Total,Percentage,Satisfaction_Rate,Total_Sections,Total_Overages,Status
+Missed Requests,0,600.0,0.00%,100.00%,,,
+Sections Over Capacity,0,,0.00%,,40.0,0.0,
+Overall Satisfaction,600,600.0,100.00%,,,,Perfect

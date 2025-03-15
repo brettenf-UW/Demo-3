@@ -19,10 +19,10 @@ COPY "gurobi.lic" /app/gurobi.lic
 # Set environment variables for Gurobi license and Anthropic API
 ENV GRB_LICENSE_FILE=/app/gurobi.lic
 ENV PATH="$PATH:/opt/gurobi/bin"
-ENV ANTHROPIC_API_KEY="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"
+ENV ANTHROPIC_API_KEY="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"
 
 # Create .env file with API key for dotenv loading
-RUN echo "ANTHROPIC_API_KEY=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" > /app/.env
+RUN echo "ANTHROPIC_API_KEY=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" > /app/.env
 
 # Verify files were copied correctly
 RUN echo "Checking for required files:" && \

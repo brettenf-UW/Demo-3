@@ -13,35 +13,29 @@ S011,Sports Med,T013,15,PE
 S012,Sports Med,T014,15,PE
 S013,PE,T013,35,PE
 S014,PE,T014,35,PE
-S015,US History,T011,25,Social Studies
-S016,US History,T012,25,Social Studies
+S015,Math 4,T005,25,Math
+S016,Math 4,T006,25,Math
 S017,English 9,T003,25,English
 S018,English 9,T004,25,English
-S019,Math 2,T005,25,Math
-S020,Math 2,T006,25,Math
-S021,Economics,T011,25,Social Studies
-S022,Economics,T012,25,Social Studies
-S023,World History,T011,25,Social Studies
-S024,World History,T012,25,Social Studies
-S025,Physics,T007,30,Science
-S026,Physics,T008,30,Science
-S027,English 11,T003,25,English
-S028,English 11,T004,25,English
-S029,Chemistry,T009,30,Science
-S030,Chemistry,T010,30,Science
-S031,Math 3,T005,25,Math
-S032,Math 3,T006,25,Math
-S033,Math 1,T005,25,Math
-S034,Math 1,T006,25,Math
-S035,Government,T011,25,Social Studies
-S036,Government,T012,25,Social Studies
-S037,English 10,T003,25,English
-S038,English 10,T004,25,English
-S039,Biology,T007,30,Science
-S040,Biology,T008,30,Science
-S041,English 12,T003,25,English
-S042,English 12,T004,25,English
-S043,Math 4,T005,25,Math
-S044,Math 4,T006,25,Math
-S045,AP Biology,T009,30,Science
-S046,AP Biology,T010,30,Science
+S019,English 11,T003,25,English
+S020,English 11,T004,25,English
+S021,AP Biology,T007,30,Science
+S023,Math 3,T005,25,Math
+S025,English 12,T003,25,English
+S026,English 12,T004,25,English
+S027,US History,T011,25,Social Studies
+S029,Government,T011,25,Social Studies
+S030,Government,T012,25,Social Studies
+S031,Biology,T009,30,Science
+S032,Biology,T010,30,Science
+S033,Economics,T011,25,Social Studies
+S034,Economics,T012,25,Social Studies
+S035,English 10,T003,25,English
+S037,Chemistry,T007,30,Science
+S039,World History,T011,25,Social Studies
+S040,World History,T012,25,Social Studies
+S041,Math 1,T005,25,Math
+S043,Physics,T009,30,Science
+S044,Physics,T010,30,Science
+S045,Math 2,T005,25,Math
+S046,Math 2,T006,25,Math

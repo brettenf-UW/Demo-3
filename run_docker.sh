@@ -48,13 +48,16 @@ docker build -t scheduler-optimizer .
 # Get the current directory path
 CURRENT_DIR=$(pwd)
 
+# Set API key variable - hardcoded key
+ANTHROPIC_API_KEY="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"
+
 # Base docker run command with volumes
 DOCKER_CMD="docker run --rm \
   -v \"$CURRENT_DIR/input:/app/input\" \
   -v \"$CURRENT_DIR/output:/app/output\" \
   -v \"$CURRENT_DIR/main:/app/main\" \
   -v \"$CURRENT_DIR/gurobi (2).lic:/app/gurobi.lic\" \
-  -e ANTHROPIC_API_KEY=\"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\" \
+  -e ANTHROPIC_API_KEY=\"$ANTHROPIC_API_KEY\" \
   -e GRB_LICENSE_FILE=\"/app/gurobi.lic\" \
   scheduler-optimizer"
 

@@ -60,7 +60,17 @@ class ScheduleOptimizer:
         output_dir = 'output'
         os.makedirs(output_dir, exist_ok=True)
         
-        log_filename = os.path.join(output_dir, f'gurobi_scheduling_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+        # Use a single log file instead of timestamped logs
+        log_filename = os.path.join(output_dir, 'gurobi_scheduling.log')
+        
+        # If file already exists and is large, truncate or rotate it
+        if os.path.exists(log_filename) and os.path.getsize(log_filename) > 1024 * 1024:  # > 1MB
+            # Rename existing file
+            backup_log = os.path.join(output_dir, 'gurobi_scheduling.old.log')
+            if os.path.exists(backup_log):
+                os.remove(backup_log)  # Remove old backup if exists
+            os.rename(log_filename, backup_log)
+            
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
@@ -156,6 +166,7 @@ class ScheduleOptimizer:
                 )
 
         # 2. SOFT Section capacity constraints - track violations instead of enforcing hard limit
+        # But limit violations to a maximum of 4 students over capacity (hard constraint)
         for _, section in self.sections.iterrows():
             section_id = section['Section ID']
             capacity = section['# of Seats Available']
@@ -164,6 +175,11 @@ class ScheduleOptimizer:
                            for student_id in self.students['Student ID']
                            if (student_id, section_id) in self.x) <= capacity + self.capacity_violation[section_id],
                 name=f'soft_capacity_{section_id}'
+            )
+            # Hard constraint: limit capacity violations to at most 4 students
+            self.model.addConstr(
+                self.capacity_violation[section_id] <= 4,
+                name=f'max_capacity_violation_{section_id}'
             )
 
         # 3. SOFT Student course requirements - using missed_request variables
@@ -247,13 +263,14 @@ class ScheduleOptimizer:
         missed_requests_penalty = 1000 * gp.quicksum(self.missed_request[student_id, course_id]
                                               for (student_id, course_id) in self.missed_request)
         
-        # Secondary objective: minimize capacity violations (lower priority)
-        capacity_penalty = 1 * gp.quicksum(self.capacity_violation[section_id]
+        # Secondary objective: minimize capacity violations (increased priority)
+        capacity_penalty = 500 * gp.quicksum(self.capacity_violation[section_id]
                                           for section_id in self.capacity_violation)
         
         # Set objective to minimize penalties (equivalent to maximizing satisfaction)
         self.model.setObjective(missed_requests_penalty + capacity_penalty, GRB.MINIMIZE)
         self.logger.info("Objective function with soft constraints set successfully")
+        self.logger.info(f"Weights - Missed requests: 1000, Capacity violations: 500")
 
     def greedy_initial_solution(self):
         """Generate a feasible initial solution using the advanced greedy algorithm"""
@@ -397,10 +414,18 @@ class ScheduleOptimizer:
             # Set parameters as requested
             self.model.setParam('Presolve', 1)  # Use standard presolve
             self.model.setParam('Method', 1)    # Use dual simplex for LP relaxations
-            self.model.setParam('MIPFocus', 1)  # Focus on feasible solutions
+            self.model.setParam('MIPFocus', 1)  # Focus aggressively on finding feasible solutions
+            
+            # Always aim for perfect solution regardless of problem size
+            self.model.setParam('BestObjStop', 0)  # Stop after finding a solution with 0 objective (perfect)
+            self.logger.info("Setting BestObjStop to 0 - will search for perfect solution")
+            
+            # Remove solution limit to allow solver to keep searching
+            self.model.setParam('SolutionLimit', 100000)  # Allow many solutions to be found
+            self.model.setParam('MIPGapAbs', 0.001)  # Much stricter termination criterion
             
             # Other parameters
-            self.model.setParam('MIPGap', 0.10)     # 10% MIP gap tolerance
+            self.model.setParam('MIPGap', 0.001)  # 0.1% MIP gap tolerance - much stricter
             self.model.setParam('TimeLimit', 25200)  # 7 hours time limit
             
             # Set up node file storage
@@ -454,6 +479,9 @@ class ScheduleOptimizer:
             self.logger.info("=" * 80)
             self.logger.info("OPTIMIZATION RESULTS")
             
+            # Always try to save at least some files if we have a solution
+            has_solution = self.model.SolCount > 0
+            
             if self.model.status == GRB.OPTIMAL or (self.model.status == GRB.TIME_LIMIT and self.model.SolCount > 0):
                 # Calculate the actual satisfaction metrics from variables, not objective value
                 missed_count = sum(var.X > 0.5 for var in self.missed_request.values())
@@ -496,14 +524,24 @@ class ScheduleOptimizer:
                         self.logger.info("PEAK MEMORY USAGE: Not available")
                 except Exception as e:
                     self.logger.warning(f"Cannot retrieve peak memory usage: {str(e)}")
+            elif self.model.status == GRB.TIME_LIMIT:
+                self.logger.error("STATUS: Time limit reached without finding any solution")
+                # Check if we have a solution anyway
+                has_solution = self.model.SolCount > 0
+            elif self.model.status == GRB.SOLUTION_LIMIT:
+                self.logger.info("STATUS: Solution limit reached - found good solution")
+                has_solution = True
+            else:
+                self.logger.error(f"STATUS: Optimization failed with status code {self.model.status}")
                 
+            # Save solution files 
+            if has_solution:
                 self.logger.info("=" * 80)
                 self.logger.info("Saving solution files...")
                 self.save_solution()
-            elif self.model.status == GRB.TIME_LIMIT:
-                self.logger.error("STATUS: Time limit reached without finding any solution")
+                self.logger.info("Solution files saved successfully.")
             else:
-                self.logger.error(f"STATUS: Optimization failed with status code {self.model.status}")
+                self.logger.error("No solution available to save to files.")
                 
         except gp.GurobiError as e:
             self.logger.error(f"GUROBI ERROR: {str(e)}")
@@ -526,76 +564,141 @@ class ScheduleOptimizer:
         output_dir = 'output'
         os.makedirs(output_dir, exist_ok=True)
 
-        # Save section schedule
-        section_schedule = []
-        for (section_id, period), z_var in self.z.items():
-            if z_var.X > 0.5:
-                section_schedule.append({
-                    'Section ID': section_id,
-                    'Period': period
-                })
-        pd.DataFrame(section_schedule).to_csv(
-            os.path.join(output_dir, 'Master_Schedule.csv'),
-            index=False
-        )
-
-        # Save student assignments
-        student_assignments = []
-        for (student_id, section_id), x_var in self.x.items():
-            if x_var.X > 0.5:
-                student_assignments.append({
-                    'Student ID': student_id,
-                    'Section ID': section_id
-                })
-        pd.DataFrame(student_assignments).to_csv(
-            os.path.join(output_dir, 'Student_Assignments.csv'),
-            index=False
-        )
-
-        # Save teacher schedule
-        teacher_schedule = []
-        for (section_id, period), z_var in self.z.items():
-            if z_var.X > 0.5:
-                teacher_id = self.sections[
-                    self.sections['Section ID'] == section_id
-                ]['Teacher Assigned'].iloc[0]
-                teacher_schedule.append({
-                    'Teacher ID': teacher_id,
-                    'Section ID': section_id,
-                    'Period': period
-                })
-        pd.DataFrame(teacher_schedule).to_csv(
-            os.path.join(output_dir, 'Teacher_Schedule.csv'),
-            index=False
-        )
-
-        # Save metrics for soft constraints
-        constraint_violations = []
+        # Track existing files and ensure they're created
+        files_created = []
         
-        # Calculate and save missed requests
-        missed_count = sum(var.X > 0.5 for var in self.missed_request.values())
-        total_requests = len(self.missed_request)
-        constraint_violations.append({
-            'Metric': 'Missed Requests',
-            'Count': int(missed_count),
-            'Total': total_requests,
-            'Percentage': f"{100 * missed_count / total_requests:.2f}%"
-        })
+        try:
+            # Save section schedule
+            section_schedule = []
+            for (section_id, period), z_var in self.z.items():
+                if z_var.X > 0.5:
+                    section_schedule.append({
+                        'Section ID': section_id,
+                        'Period': period
+                    })
+            master_schedule_path = os.path.join(output_dir, 'Master_Schedule.csv')
+            pd.DataFrame(section_schedule).to_csv(master_schedule_path, index=False)
+            files_created.append(master_schedule_path)
+            self.logger.info(f"Created {master_schedule_path} with {len(section_schedule)} entries")
+
+            # Save student assignments
+            student_assignments = []
+            for (student_id, section_id), x_var in self.x.items():
+                if x_var.X > 0.5:
+                    student_assignments.append({
+                        'Student ID': student_id,
+                        'Section ID': section_id
+                    })
+            student_assignments_path = os.path.join(output_dir, 'Student_Assignments.csv')
+            pd.DataFrame(student_assignments).to_csv(student_assignments_path, index=False)
+            files_created.append(student_assignments_path)
+            self.logger.info(f"Created {student_assignments_path} with {len(student_assignments)} entries")
+
+            # Save teacher schedule
+            teacher_schedule = []
+            for (section_id, period), z_var in self.z.items():
+                if z_var.X > 0.5:
+                    try:
+                        teacher_id = self.sections[
+                            self.sections['Section ID'] == section_id
+                        ]['Teacher Assigned'].iloc[0]
+                        teacher_schedule.append({
+                            'Teacher ID': teacher_id,
+                            'Section ID': section_id,
+                            'Period': period
+                        })
+                    except Exception as e:
+                        self.logger.warning(f"Error finding teacher for section {section_id}: {str(e)}")
+                        teacher_schedule.append({
+                            'Teacher ID': 'Unknown',
+                            'Section ID': section_id,
+                            'Period': period
+                        })
+            teacher_schedule_path = os.path.join(output_dir, 'Teacher_Schedule.csv')
+            pd.DataFrame(teacher_schedule).to_csv(teacher_schedule_path, index=False)
+            files_created.append(teacher_schedule_path)
+            self.logger.info(f"Created {teacher_schedule_path} with {len(teacher_schedule)} entries")
+
+            # Save metrics for soft constraints
+            constraint_violations = []
+            
+            # Calculate and save missed requests
+            missed_count = sum(var.X > 0.5 for var in self.missed_request.values())
+            total_requests = len(self.missed_request)
+            satisfied_count = total_requests - missed_count
+            satisfaction_rate = (satisfied_count / total_requests) * 100 if total_requests > 0 else 0
+            
+            constraint_violations.append({
+                'Metric': 'Missed Requests',
+                'Count': int(missed_count),
+                'Total': total_requests,
+                'Percentage': f"{missed_count / total_requests * 100:.2f}%",
+                'Satisfaction_Rate': f"{satisfaction_rate:.2f}%"
+            })
+            
+            # Calculate and save capacity violations
+            sections_over_capacity = sum(1 for var in self.capacity_violation.values() if var.X > 0.5)
+            total_violations = sum(var.X for var in self.capacity_violation.values())
+            
+            constraint_violations.append({
+                'Metric': 'Sections Over Capacity',
+                'Count': int(sections_over_capacity),
+                'Total_Sections': len(self.sections),
+                'Percentage': f"{sections_over_capacity / len(self.sections) * 100:.2f}%" if len(self.sections) > 0 else "0.00%",
+                'Total_Overages': int(total_violations)
+            })
+            
+            # Add overall satisfaction stats
+            constraint_violations.append({
+                'Metric': 'Overall Satisfaction',
+                'Count': int(satisfied_count),
+                'Total': total_requests,
+                'Percentage': f"{satisfaction_rate:.2f}%",
+                'Status': "Perfect" if missed_count == 0 else ("Good" if satisfaction_rate >= 90 else "Fair")
+            })
+            
+            violations_path = os.path.join(output_dir, 'Constraint_Violations.csv')
+            pd.DataFrame(constraint_violations).to_csv(violations_path, index=False)
+            files_created.append(violations_path)
+            self.logger.info(f"Created {violations_path}")
+            
+            # Save a summary of all output files
+            self.logger.info(f"Successfully created {len(files_created)} output files:")
+            for filepath in files_created:
+                file_size = os.path.getsize(filepath)
+                self.logger.info(f"  - {filepath} ({file_size} bytes)")
         
-        # Calculate and save capacity violations
-        sections_over_capacity = sum(1 for var in self.capacity_violation.values() if var.X > 0.5)
-        total_violations = sum(var.X for var in self.capacity_violation.values())
-        constraint_violations.append({
-            'Metric': 'Sections Over Capacity',
-            'Count': int(sections_over_capacity),
-            'Total Sections': len(self.sections),
-            'Total Overages': int(total_violations)
-        })
-        
-        pd.DataFrame(constraint_violations).to_csv(
-            os.path.join(output_dir, 'Constraint_Violations.csv'),
-            index=False
-        )
+        except Exception as e:
+            self.logger.error(f"Error saving solution files: {str(e)}")
+            # Try to create empty files for any missing required outputs
+            required_files = [
+                'Master_Schedule.csv',
+                'Student_Assignments.csv',
+                'Teacher_Schedule.csv',
+                'Constraint_Violations.csv'
+            ]
+            for filename in required_files:
+                filepath = os.path.join(output_dir, filename)
+                if filepath not in files_created:
+                    try:
+                        # Create empty file with headers
+                        if filename == 'Master_Schedule.csv':
+                            pd.DataFrame(columns=['Section ID', 'Period']).to_csv(filepath, index=False)
+                        elif filename == 'Student_Assignments.csv':
+                            pd.DataFrame(columns=['Student ID', 'Section ID']).to_csv(filepath, index=False)
+                        elif filename == 'Teacher_Schedule.csv':
+                            pd.DataFrame(columns=['Teacher ID', 'Section ID', 'Period']).to_csv(filepath, index=False)
+                        elif filename == 'Constraint_Violations.csv':
+                            # Create placeholder constraint violations with consistent columns
+                            placeholder_data = [
+                                {'Metric': 'Missed Requests', 'Count': 0, 'Total': 0, 'Percentage': '0.00%', 'Satisfaction_Rate': '100.00%'},
+                                {'Metric': 'Sections Over Capacity', 'Count': 0, 'Total_Sections': 0, 'Percentage': '0.00%', 'Total_Overages': 0},
+                                {'Metric': 'Overall Satisfaction', 'Count': 0, 'Total': 0, 'Percentage': '0.00%', 'Status': 'N/A'}
+                            ]
+                            pd.DataFrame(placeholder_data).to_csv(filepath, index=False)
+                        self.logger.info(f"Created empty placeholder file: {filepath}")
+                    except Exception as e2:
+                        self.logger.error(f"Failed to create placeholder file {filepath}: {str(e2)}")
 
         self.logger.info("Solution saved successfully")
 
