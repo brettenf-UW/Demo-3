@@ -1,0 +1,130 @@
+Section ID,Course ID,Teacher Assigned,# of Seats Available,Department
+S001,Medical Career,T001,12,Special
+S002,Medical Career,T001,12,Special
+S003,Heroes Teach,T002,12,Special
+S004,Heroes Teach,T002,12,Special
+S005,PE,T045,22,PE
+S006,PE,T046,22,PE
+S007,PE,T047,22,PE
+S008,PE,T048,22,PE
+S009,PE,T049,22,PE
+S010,PE,T045,22,PE
+S011,PE,T046,22,PE
+S012,PE,T047,22,PE
+S013,PE,T048,22,PE
+S014,PE,T049,22,PE
+S015,PE,T045,22,PE
+S016,PE,T046,22,PE
+S017,Study Hall,T050,18,General
+S018,Study Hall,T051,18,General
+S019,Study Hall,T050,18,General
+S020,Study Hall,T051,18,General
+S021,Study Hall,T050,18,General
+S022,Study Hall,T051,18,General
+S023,Study Hall,T050,18,General
+S024,Study Hall,T051,18,General
+S025,Study Hall,T052,18,General
+S026,Physics,T015,18,Science
+S027,Physics,T016,18,Science
+S028,Physics,T017,18,Science
+S029,Physics,T018,18,Science
+S030,Physics,T019,18,Science
+S031,Physics,T020,18,Science
+S032,Math 4,T009,18,Math
+S033,Math 4,T010,18,Math
+S034,Math 4,T011,18,Math
+S035,Math 4,T012,18,Math
+S036,Math 4,T013,18,Math
+S037,Math 4,T014,18,Math
+S038,US History,T039,18,Social Studies
+S039,US History,T040,18,Social Studies
+S040,US History,T041,18,Social Studies
+S041,US History,T042,18,Social Studies
+S042,US History,T043,18,Social Studies
+S043,US History,T044,18,Social Studies
+S044,Government,T039,18,Social Studies
+S045,Government,T040,18,Social Studies
+S046,Government,T041,18,Social Studies
+S047,Government,T042,18,Social Studies
+S048,Government,T043,18,Social Studies
+S049,Government,T044,18,Social Studies
+S050,English 10,T003,18,English
+S051,English 10,T004,18,English
+S052,English 10,T005,18,English
+S053,English 10,T006,18,English
+S054,English 10,T007,18,English
+S055,English 10,T008,18,English
+S056,English 9,T003,18,English
+S057,English 9,T004,18,English
+S058,English 9,T005,18,English
+S059,English 9,T006,18,English
+S060,English 9,T007,18,English
+S061,English 9,T008,18,English
+S062,AP Biology,T021,18,Science
+S063,AP Biology,T022,18,Science
+S064,AP Biology,T023,18,Science
+S065,AP Biology,T024,18,Science
+S066,AP Biology,T025,18,Science
+S067,AP Biology,T026,18,Science
+S068,English 11,T003,18,English
+S069,English 11,T004,18,English
+S070,English 11,T005,18,English
+S071,English 11,T006,18,English
+S072,English 11,T007,18,English
+S073,English 11,T008,18,English
+S074,Biology,T027,18,Science
+S075,Biology,T028,18,Science
+S076,Biology,T029,18,Science
+S077,Biology,T030,18,Science
+S078,Biology,T031,18,Science
+S079,Biology,T032,18,Science
+S080,Math 2,T009,18,Math
+S081,Math 2,T010,18,Math
+S082,Math 2,T011,18,Math
+S083,Math 2,T012,18,Math
+S084,Math 2,T013,18,Math
+S085,Math 2,T014,18,Math
+S086,Math 1,T009,18,Math
+S087,Math 1,T010,18,Math
+S088,Math 1,T011,18,Math
+S089,Math 1,T012,18,Math
+S090,Math 1,T013,18,Math
+S091,Math 1,T014,18,Math
+S092,English 12,T003,18,English
+S093,English 12,T004,18,English
+S094,English 12,T005,18,English
+S095,English 12,T006,18,English
+S096,English 12,T007,18,English
+S097,English 12,T008,18,English
+S098,Economics,T039,18,Social Studies
+S099,Economics,T040,18,Social Studies
+S100,Economics,T041,18,Social Studies
+S101,Economics,T042,18,Social Studies
+S102,Economics,T043,18,Social Studies
+S103,Economics,T044,18,Social Studies
+S104,Math 3,T009,18,Math
+S105,Math 3,T010,18,Math
+S106,Math 3,T011,18,Math
+S107,Math 3,T012,18,Math
+S108,Math 3,T013,18,Math
+S109,Math 3,T014,18,Math
+S110,Chemistry,T033,18,Science
+S111,Chemistry,T034,18,Science
+S112,Chemistry,T035,18,Science
+S113,Chemistry,T036,18,Science
+S114,Chemistry,T037,18,Science
+S115,Chemistry,T038,18,Science
+S116,World History,T039,18,Social Studies
+S117,World History,T040,18,Social Studies
+S118,World History,T041,18,Social Studies
+S119,World History,T042,18,Social Studies
+S120,World History,T043,18,Social Studies
+S121,World History,T044,18,Social Studies
+S122,Sports Med,T047,12,PE
+S123,Sports Med,T048,12,PE
+S124,Sports Med,T049,12,PE
+S125,Sports Med,T045,12,PE
+S126,Sports Med,T046,12,PE
+S127,Sports Med,T047,12,PE
+S128,Sports Med,T048,12,PE
+S129,Sports Med,T049,12,PE
