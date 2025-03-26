@@ -48,15 +48,20 @@ docker build -t scheduler-optimizer .
 # Get the current directory path
 CURRENT_DIR=$(pwd)
 
-# Set API key variable - hardcoded key
-ANTHROPIC_API_KEY="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"
+# Load environment variables from .secrets/.env
+if [ -f .secrets/.env ]; then
+  export $(grep -v '^#' .secrets/.env | xargs)
+else
+  echo "Error: .secrets/.env file not found. Run ./setup_credentials.sh first."
+  exit 1
+fi
 
 # Base docker run command with volumes
 DOCKER_CMD="docker run --rm \
   -v \"$CURRENT_DIR/input:/app/input\" \
   -v \"$CURRENT_DIR/output:/app/output\" \
   -v \"$CURRENT_DIR/main:/app/main\" \
-  -v \"$CURRENT_DIR/gurobi (2).lic:/app/gurobi.lic\" \
+  -v \"$CURRENT_DIR/gurobi.lic:/app/gurobi.lic\" \
   -e ANTHROPIC_API_KEY=\"$ANTHROPIC_API_KEY\" \
   -e GRB_LICENSE_FILE=\"/app/gurobi.lic\" \
   scheduler-optimizer"

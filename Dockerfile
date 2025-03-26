@@ -16,13 +16,13 @@ COPY output/ /app/output/
 COPY pipeline.py schedule_optimizer.py synthetic.py /app/
 COPY "gurobi.lic" /app/gurobi.lic
 
-# Set environment variables for Gurobi license and Anthropic API
+# Set environment variables for Gurobi license
 ENV GRB_LICENSE_FILE=/app/gurobi.lic
 ENV PATH="$PATH:/opt/gurobi/bin"
-ENV ANTHROPIC_API_KEY="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"
 
-# Create .env file with API key for dotenv loading
-RUN echo "ANTHROPIC_API_KEY=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" > /app/.env
+# Anthropic API key will be provided at runtime via environment variable
+# Create empty .env file for dotenv loading
+RUN touch /app/.env
 
 # Verify files were copied correctly
 RUN echo "Checking for required files:" && \

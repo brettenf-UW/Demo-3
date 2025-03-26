@@ -36,10 +36,19 @@ The system consists of:
    cd scheduler-optimizer
    ```
 
-2. Place your Gurobi license file in the root directory:
+2. Set up secure credentials:
    ```
-   cp /path/to/your/gurobi.lic ./
+   # Create the .secrets directory
+   mkdir -p .secrets
+   
+   # Create and edit your credentials file
+   nano .secrets/.env
+   
+   # Run the setup script to generate credential files
+   ./setup_credentials.sh
    ```
+   
+   See [SECURITY.md](SECURITY.md) for detailed instructions on securing credentials.
 
 3. Build and run the Docker container:
    ```

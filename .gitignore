@@ -1,4 +1,41 @@
+# Ignore sensitive files and directories
 .env
 *.env
 .env.local
 Keys/
+.secrets/
+*.lic
+gurobi.lic*
+gurobi*.lic
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+*.log
+output/gurobi_scheduling.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
