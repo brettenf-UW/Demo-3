@@ -125,7 +125,7 @@ def run_optimization_pipeline():
     3. If yes, run schedule_optimizer.py and then rerun MILPsoft.py
     Maximum 3 iterations of MILPsoft.py.
     """
-    max_iterations = 2
+    max_iterations = 3
     
     print("\n=== Starting Optimization Pipeline ===\n")
     
